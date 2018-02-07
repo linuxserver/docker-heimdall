@@ -16,13 +16,16 @@ else
 fi
 
 # symlink user config
-rm -rf \
-  /app/heimdall/storage/app/public/backgrounds \
-  /app/heimdall/storage/app/public/icons \
-  /app/heimdall/database/app.sqlite
-ln -s /config/www/backgrounds /app/heimdall/storage/app/public/backgrounds
-ln -s /config/www/icons /app/heimdall/storage/app/public/icons
-ln -s /config/www/app.sqlite /app/heimdall/database/app.sqlite
+
+symlinks=( \
+/app/heimdall/storage/app/public/backgrounds \
+/app/heimdall/storage/app/public/icons \
+/app/heimdall/database/app.sqlite )
+
+for i in "${symlinks[@]}"
+do
+[[ -e "$i" && ! -L "$i" ]] && rm -rf $i; ln -s /config/www/$(basename "$i") "$i"
+done
 
 # permissions
 chown -R abc:abc \
