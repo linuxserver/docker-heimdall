@@ -25,8 +25,7 @@ RUN \
   "https://github.com/linuxserver/Heimdall/archive/${VERSION}.tar.gz" && \
  tar xf \
   /tmp/heimdall.tar.gz -C \
-  /tmp && \
- cp -R /tmp/Heimdall-*/* /app/heimdall/ && \
+ 	/app/heimdall --strip-components=1  && \
  echo "** cleanup **" && \
  rm -rf \
   /tmp/*
