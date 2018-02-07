@@ -19,7 +19,6 @@ RUN \
 	tar && \
  echo "**** install heimdall ****" && \
  VERSION="$(curl -sX GET https://api.github.com/repos/linuxserver/Heimdall/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
- echo "**Installing Heimdall ${VERSION}**" && \
  mkdir -p \
 	/var/www/localhost/heimdall && \
  curl -o \
