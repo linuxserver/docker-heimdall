@@ -4,17 +4,6 @@
 mkdir -p \
   /config/www/{backgrounds,icons}
 
-# set base url if needed
-rm -rf /app/root
-if [ -z "$BASEURL" ]; then
-  echo "No base url set. You can access the app at http://SERVERIP:PORT"
-  ln -s ./heimdall/public /app/root
-else
-  echo "Setting base url. You can access the app at http://SERVERIP:PORT/$BASEURL"
-  mkdir -p /app/root
-  ln -s ../heimdall/public /app/root/"$BASEURL"
-fi
-
 # symlink user config
 
 symlinks=( \
