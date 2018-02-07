@@ -17,7 +17,7 @@ RUN \
 	php7-pdo_sqlite \
 	php7-tokenizer \
 	tar && \
- mkdir -p /app/heimdall && \
+ mkdir -p /var/www/localhost/heimdall && \
  VERSION="$(curl -sX GET https://api.github.com/repos/linuxserver/Heimdall/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
  echo "**Installing Heimdall ${VERSION}**" && \
  curl -o \
@@ -26,7 +26,7 @@ RUN \
  tar xf \
   /tmp/heimdall.tar.gz -C \
   /tmp && \
- cp -R /tmp/Heimdall-*/* /app/heimdall/ && \
+ cp -R /tmp/Heimdall-*/* /var/www/localhost/heimdall/ && \
  echo "** cleanup **" && \
  rm -rf \
   /tmp/*
