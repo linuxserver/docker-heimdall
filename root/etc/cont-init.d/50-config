@@ -1,0 +1,30 @@
+#!/usr/bin/with-contenv bash
+
+# create folders
+mkdir -p \
+  /config/www/{backgrounds,icons}
+
+# set base url if needed
+rm -rf /app/root
+if [ -z "$BASEURL" ]; then
+  echo "No base url set. You can access the app at http://SERVERIP:PORT"
+  ln -s ./heimdall/public /app/root
+else
+  echo "Setting base url. You can access the app at http://SERVERIP:PORT/$BASEURL"
+  mkdir -p /app/root
+  ln -s ../heimdall/public /app/root/"$BASEURL"
+fi
+
+# symlink user config
+rm -rf \
+  /app/heimdall/storage/app/public/backgrounds \
+  /app/heimdall/storage/app/public/icons \
+  /app/heimdall/database/app.sqlite
+ln -s /config/www/backgrounds /app/heimdall/storage/app/public/backgrounds
+ln -s /config/www/icons /app/heimdall/storage/app/public/icons
+ln -s /config/www/app.sqlite /app/heimdall/database/app.sqlite
+
+# permissions
+chown -R abc:abc \
+	/config \
+	/app
