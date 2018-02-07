@@ -24,7 +24,7 @@ symlinks=( \
 
 for i in "${symlinks[@]}"
 do
-[[ -e "$i" && ! -L "$i" ]] && rm -rf $i; ln -s /config/www/$(basename "$i") "$i"
+[[ -e "$i" && ! -L "$i" ]] && rm -rf "$i"; ln -s /config/www/"$(basename "$i")" "$i"
 done
 
 # permissions
