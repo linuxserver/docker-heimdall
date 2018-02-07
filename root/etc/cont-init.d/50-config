@@ -20,4 +20,4 @@ done
 # permissions
 chown -R abc:abc \
 	/config \
-	/app
+	/var/www/localhost/heimdall
