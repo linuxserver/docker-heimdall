@@ -3,7 +3,7 @@ server {
 
 	listen 443 ssl;
 
-	root /app/root;
+	root /var/www/localhost/heimdall/public;
 	index index.php index.html index.htm;
 
 	server_name _;
