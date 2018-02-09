@@ -18,12 +18,12 @@ RUN \
 	php7-tokenizer \
 	tar && \
  echo "**** install heimdall ****" && \
- VERSION="$(curl -sX GET https://api.github.com/repos/linuxserver/Heimdall/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
+ HEIM_VER="$(curl -sX GET https://api.github.com/repos/linuxserver/Heimdall/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
  mkdir -p \
 	/var/www/localhost/heimdall && \
  curl -o \
  /tmp/heimdall.tar.gz -L \
-	"https://github.com/linuxserver/Heimdall/archive/${VERSION}.tar.gz" && \
+	"https://github.com/linuxserver/Heimdall/archive/${HEIM_VER}.tar.gz" && \
  tar xf \
  /tmp/heimdall.tar.gz -C \
 	/var/www/localhost/heimdall --strip-components=1 && \
