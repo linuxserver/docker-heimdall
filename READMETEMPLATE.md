@@ -21,7 +21,7 @@ Simplicity is the key to Heimdall.
 
 Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.
 
-[![nginx](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png)][appurl]
+[![nginx](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-icon.png)][appurl]
 
 ## Usage
 
@@ -49,7 +49,6 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` - timezone ie. `America/New_York`
-* `-e BASEURL` - _optional_ - you can set a base url through this variable to serve the app at http://SERVERIP:PORT/BASEURL
 
 It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it heimdall /bin/bash`.
 
