@@ -82,4 +82,4 @@ Access the web gui at http://SERVERIP:PORT
 
 ## Versions
 
-+ **12.02.18:** Intial Release.
++ **12.02.18:** Initial Release.
