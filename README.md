@@ -21,7 +21,7 @@ Simplicity is the key to Heimdall.
 
 Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.
 
-[![nginx](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-icon.png)][appurl]
+[![heimdall](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png)][appurl]
 
 ## Usage
 
