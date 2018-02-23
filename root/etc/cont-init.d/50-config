@@ -4,6 +4,12 @@
 mkdir -p \
   /config/www/{backgrounds,icons}
 
+# update from git repo
+cd /var/www/localhost/heimdall
+git pull
+[[ -z "$BRANCH" ]] && \
+	git checkout "$BRANCH"
+
 # symlink user config
 
 symlinks=( \
