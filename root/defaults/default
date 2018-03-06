@@ -15,21 +15,20 @@ server {
 
 	client_max_body_size 0;
 	
-	if (-f /config/nginx/.htpasswd) {
-		return 599;
-	}
+        error_page 599 = @noauth;
 
-	location / {
-		try_files $uri $uri/ /index.php?$args;
-	}
-	
-	error_page 599 = @htpasswd;
-	
-	location @htpasswd {
-		auth_basic "Restricted";
-		auth_basic_user_file /config/nginx/.htpasswd;
-		try_files $uri $uri/ /index.php?$args;
-	}
+        location / {
+                if (!-f /config/nginx/.htpasswd) {
+                        return 599;
+                }
+                auth_basic "Restricted";
+                auth_basic_user_file /config/nginx/.htpasswd;
+                try_files $uri $uri/ /index.php?$args;
+        }
+
+        location @noauth {
+                try_files $uri $uri/ /index.php?$args;
+        }
 
 	location ~ \.php$ {
 		fastcgi_split_path_info ^(.+\.php)(/.+)$;
