@@ -1,3 +1,5 @@
+## Version 2018/03/06 - Changelog: https://github.com/linuxserver/docker-heimdall/commits/master/root/defaults/default
+
 server {
 	listen 80 default_server;
 
@@ -12,8 +14,20 @@ server {
 	ssl_certificate_key /config/keys/cert.key;
 
 	client_max_body_size 0;
+	
+	if (-f /config/nginx/.htpasswd) {
+		return 599;
+	}
 
 	location / {
+		try_files $uri $uri/ /index.php?$args;
+	}
+	
+	error_page 599 = @htpasswd;
+	
+	location @htpasswd {
+		auth_basic "Restricted";
+		auth_basic_user_file /config/nginx/.htpasswd;
 		try_files $uri $uri/ /index.php?$args;
 	}
 
