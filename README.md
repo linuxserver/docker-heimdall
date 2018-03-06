@@ -67,6 +67,10 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 Access the web gui at http://SERVERIP:PORT
 
+## Adding password protection
+
+This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. New installs will automatically pick it up and implement password protected access. Existing users updating their image can delete their site config at `/config/nginx/site-confs/default` and restart the container after updating the image. A new site config with the htpasswd support will be created in its place.
+
 ## Info
 
 * To monitor the logs of the container in realtime `docker logs -f heimdall`.
@@ -82,4 +86,5 @@ Access the web gui at http://SERVERIP:PORT
 
 ## Versions
 
++ **06.03.18:** Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default and restart the container, a new default site config with htpasswd support will be created in its place
 + **12.02.18:** Initial Release.
