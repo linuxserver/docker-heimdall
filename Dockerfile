@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.nginx:3.7
+FROM linuxserver/letsencrypt
 
 # set version label
 ARG BUILD_DATE
