@@ -86,5 +86,6 @@ This image now supports password protection through htpasswd. Run the following 
 
 ## Versions
 
++ **05.09.18:** Rebase to alpine linux 3.8.
 + **06.03.18:** Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default and restart the container, a new default site config with htpasswd support will be created in its place
 + **12.02.18:** Initial Release.

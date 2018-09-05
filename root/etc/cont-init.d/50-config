@@ -1,10 +1,10 @@
 #!/usr/bin/with-contenv bash
 
-# create folders
+# make our folders
 mkdir -p \
-  /config/www/{backgrounds,icons}
+	/config/www/{backgrounds,icons}
 
-# symlink user config
+# create symlinks
 
 symlinks=( \
 /var/www/localhost/heimdall/storage/app/public/backgrounds \
