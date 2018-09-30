@@ -1,0 +1,52 @@
+---
+
+# project information
+project_name: heimdall
+project_url: "https://heimdall.site"
+project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png"
+project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is a way to organise all those links to your most used web sites and web applications in a simple way.
+
+Simplicity is the key to Heimdall.
+
+Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo."
+project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+
+# supported architectures
+available_architectures:
+  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+
+# container parameters
+common_param_env_vars_enabled: true
+param_container_name: "{{ project_name }}"
+param_usage_include_vols: true
+param_volumes:
+  - { vol_path: "/config", vol_host_path: "</path/to/appdata/config>", desc: "Contains all relevant configuration files." }
+param_usage_include_ports: true
+param_ports:
+  - { external_port: "80", internal_port: "80", port_desc: "http" }
+  - { external_port: "443", internal_port: "443", port_desc: "https" }
+param_usage_include_env: true
+param_env_vars:
+  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London"}
+
+# optional parameters
+optional_block_1: false
+optional_block_1_items: ""
+
+# application setup block
+app_setup_block_enabled: true
+app_setup_block: |
+  - Access the web gui at http://SERVERIP:PORT
+
+  ## Adding password protection
+  
+  - This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. New installs will automatically pick it up and implement password protected access. Existing users updating their image can delete their site config at `/config/nginx/site-confs/default` and restart the container after updating the image. A new site config with htpasswd support will be created in its place.
+
+# changelog
+changelogs:
+  - { date: "30.09.18:", desc: "Multi-arch image. Move `.env` to `/config`." }
+  - { date: "05.09.18:", desc: "Rebase to alpine linux 3.8." }
+  - { date: "06.03.18:", desc: "Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default and restart the container, a new default site config with htpasswd support will be created in its place" }
+  - { date: "12.02.18:", desc: "Initial Release." }
