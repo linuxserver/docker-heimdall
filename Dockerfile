@@ -23,7 +23,8 @@ RUN \
 	/var/www/localhost/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \
  	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" \
-	| awk '/tag_name/{print $4;exit}' FS='[""]') && \
+	| awk '/tag_name/{print $4;exit}' FS='[""]') \
+ fi && \
  curl -o \
  /tmp/heimdall.tar.gz -L \
 	"https://github.com/linuxserver/Heimdall/archive/${HEIMDALL_RELEASE}.tar.gz" && \
