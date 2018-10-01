@@ -11,7 +11,7 @@ LABEL maintainer="aptalca"
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
 RUN \
- echo "**** install runtime pacakges ****" && \
+ echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	curl \
 	php7-ctype \
@@ -23,7 +23,7 @@ RUN \
 	/var/www/localhost/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \
  	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" \
-	| awk '/tag_name/{print $4;exit}' FS='[""]') \
+	| awk '/tag_name/{print $4;exit}' FS='[""]'); \
  fi && \
  curl -o \
  /tmp/heimdall.tar.gz -L \
