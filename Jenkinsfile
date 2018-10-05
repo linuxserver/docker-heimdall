@@ -360,7 +360,7 @@ pipeline {
           sh "docker manifest push --purge ${IMAGE}:${EXT_RELEASE}-ls${LS_TAG_NUMBER} || :"
           sh "docker manifest create ${IMAGE}:${META_TAG} ${IMAGE}:amd64-${META_TAG} ${IMAGE}:arm32v6-${META_TAG} ${IMAGE}:arm64v8-${META_TAG}"
           sh "docker manifest annotate ${IMAGE}:${META_TAG} ${IMAGE}:arm32v6-${META_TAG} --os linux --arch arm"
-          sh "docker manifest annotate ${IMAGE}:${META_TAG} ${IMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant armv8"
+          sh "docker manifest annotate ${IMAGE}:${META_TAG} ${IMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8"
           sh "docker manifest push --purge ${IMAGE}:latest"
           sh "docker manifest push --purge ${IMAGE}:${META_TAG}"
         }
