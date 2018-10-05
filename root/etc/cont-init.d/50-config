@@ -17,6 +17,11 @@ do
 [[ ! -L "$i" ]] && ln -s /config/www/"$(basename "$i")" "$i"
 done
 
+# sync .env
+[[ ! -f /config/.env ]] && \
+  cp /var/www/localhost/heimdall/.env /config/.env
+cp /config/.env /var/www/localhost/heimdall/.env
+
 # permissions
 chown -R abc:abc \
 	/config \

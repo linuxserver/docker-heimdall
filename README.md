@@ -1,94 +1,142 @@
-[linuxserverurl]: https://linuxserver.io
-[forumurl]: https://forum.linuxserver.io
-[ircurl]: https://www.linuxserver.io/irc/
-[podcasturl]: https://www.linuxserver.io/podcast/
-[appurl]: https://github.com/linuxserver/Heimdall
-[hub]: https://hub.docker.com/r/linuxserver/heimdall/
+[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
 
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
+The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring :-
 
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
+ * regular and timely application updates
+ * easy user mappings (PGID, PUID)
+ * custom base image with s6 overlay
+ * weekly base OS updates with common layers across the entire LinuxServer.io ecosystem to minimise space usage, down time and bandwidth
+ * regular security updates
 
-# linuxserver/heimdall
-[![](https://images.microbadger.com/badges/version/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/heimdall.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/heimdall.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-heimdall)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-heimdall/)
+Find us at:
+* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.
+* [IRC](https://irc.linuxserver.io) - on freenode at `#linuxserver.io`. Our primary support channel is Discord.
+* [Blog](https://blog.linuxserver.io) - all the things you can do with our containers including How-To guides, opinions and much more!
+* [Podcast](https://podcast.linuxserver.io) - on hiatus. Coming back soon (late 2018).
 
-Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.
+# PSA: Changes are happening
 
+From August 2018 onwards, Linuxserver are in the midst of switching to a new CI platform which will enable us to build and release multiple architectures under a single repo. To this end, existing images for `arm64` and `armhf` builds are being deprecated. They are replaced by a manifest file in each container which automatically pulls the correct image for your architecture. You'll also be able to pull based on a specific architecture tag.
+
+TLDR: Multi-arch support is changing from multiple repos to one repo per container image.
+
+# [linuxserver/heimdall](https://github.com/linuxserver/docker-heimdall)
+[![](https://images.microbadger.com/badges/version/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")
+![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/heimdall.svg)
+![Docker Stars](https://img.shields.io/docker/stars/linuxserver/heimdall.svg)
+
+[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way.
 Simplicity is the key to Heimdall.
-
 Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.
 
-[![heimdall](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png)][appurl]
+[![heimdall](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png)](https://heimdall.site)
+
+## Supported Architectures
+
+Our images support multiple architectures such as `X86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list). 
+
+The architectures supported by this image are:
+
+| Architecture | Tag |
+| :----: | --- |
+| X86-64 | amd64-latest |
+| arm64 | arm64v8-latest |
+| armhf | arm32v6-latest |
 
 ## Usage
 
+Here are some example snippets to help you get started creating a container.
+
+### docker
+
 ```
 docker create \
---name=heimdall \
--v <path to data>:/config \
--e PGID=<gid> -e PUID=<uid>  \
--p 80:80 -p 443:443 \
--e TZ=<timezone> \
-linuxserver/heimdall
+  --name=heimdall \
+  -e PUID=1001 \
+  -e PGID=1001 \
+  -e TZ=Europe/London \
+  -p 80:80 \
+  -p 443:443 \
+  -v </path/to/appdata/config>:/config \
+  linuxserver/heimdall
+```
+
+
+### docker-compose
+
+Compatible with docker-compose v2 schemas.
+
+```
+---
+version: "2"
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Europe/London
+    volumes:
+      - </path/to/appdata/config>:/config
+    ports:
+      - 80:80
+      - 443:443
+    mem_limit: 4096m
+    restart: unless-stopped
 ```
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
-For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
-So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
-http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
+Container images are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container.
 
+| Parameter | Function |
+| :----: | --- |
+| `-p 80` | http gui |
+| `-p 443` | https gui |
+| `-e PUID=1001` | for UserID - see below for explanation |
+| `-e PGID=1001` | for GroupID - see below for explanation |
+| `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London |
+| `-v /config` | Contains all relevant configuration files. |
 
-* `-p 80` - The web-services.
-* `-p 443` - The SSL-Based Webservice
-* `-v /config` - Contains your www content and all relevant configuration files.
-* `-e PGID` for GroupID - see below for explanation
-* `-e PUID` for UserID - see below for explanation
-* `-e TZ` - timezone ie. `America/New_York`
+## User / Group Identifiers
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it heimdall /bin/bash`.
+When using volumes (`-v` flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user `PUID` and group `PGID`.
 
-### User / Group Identifiers
+Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
 
-Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. We avoid this issue by allowing you to specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify and it will "just work" ™.
-
-In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
+In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as below:
 
 ```
-  $ id <dockeruser>
+  $ id username
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-## Setting up the application 
+&nbsp;
+## Application Setup
 
 Access the web gui at http://SERVERIP:PORT
 
-## Adding password protection
+
+### Adding password protection
 
 This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. New installs will automatically pick it up and implement password protected access. Existing users updating their image can delete their site config at `/config/nginx/site-confs/default` and restart the container after updating the image. A new site config with htpasswd support will be created in its place.
 
-## Info
-
-* To monitor the logs of the container in realtime `docker logs -f heimdall`.
 
 
+## Support Info
+
+* Shell access whilst the container is running: `docker exec -it heimdall /bin/bash`
+* To monitor the logs of the container in realtime: `docker logs -f heimdall`
 * container version number 
-
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' heimdall`
-
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' heimdall`
 * image version number
-
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/heimdall`
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/heimdall`
 
 ## Versions
 
-+ **05.09.18:** Rebase to alpine linux 3.8.
-+ **06.03.18:** Use password protection if htpasswd is set. 
-Existing users can delete their default site config at /config/nginx/site-confs/default 
-and restart the container, a new default site config with htpasswd support will be created in its place
-
-+ **12.02.18:** Initial Release.
+* **30.09.18:** - Multi-arch image. Move `.env` to `/config`.
+* **05.09.18:** - Rebase to alpine linux 3.8.
+* **06.03.18:** - Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default and restart the container, a new default site config with htpasswd support will be created in its place
+* **12.02.18:** - Initial Release.
