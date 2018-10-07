@@ -4,23 +4,23 @@
 mkdir -p \
 	/config/www/{backgrounds,icons}
 
+# copy .env if not exists
+[[ ! -f /config/www/.env ]] && \
+  cp /var/www/localhost/heimdall/.env /config/www/.env
+
 # create symlinks
 
 symlinks=( \
 /var/www/localhost/heimdall/storage/app/public/backgrounds \
 /var/www/localhost/heimdall/storage/app/public/icons \
-/var/www/localhost/heimdall/database/app.sqlite )
+/var/www/localhost/heimdall/database/app.sqlite \
+/var/www/localhost/heimdall/.env )
 
 for i in "${symlinks[@]}"
 do
 [[ -e "$i" && ! -L "$i" ]] && rm -rf "$i"
 [[ ! -L "$i" ]] && ln -s /config/www/"$(basename "$i")" "$i"
 done
-
-# sync .env
-[[ ! -f /config/.env ]] && \
-  cp /var/www/localhost/heimdall/.env /config/.env
-cp /config/.env /var/www/localhost/heimdall/.env
 
 # permissions
 chown -R abc:abc \
