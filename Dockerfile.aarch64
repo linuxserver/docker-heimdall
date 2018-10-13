@@ -34,6 +34,9 @@ RUN \
  tar xf \
  /tmp/heimdall.tar.gz -C \
 	/var/www/localhost/heimdall --strip-components=1 && \
+ echo "**** configure nginx ****" && \
+ echo -e 'fastcgi_param PHP_AUTH_USER $remote_user;\nfastcgi_param PHP_AUTH_PW $http_authorization;' >> \
+        /etc/nginx/fastcgi_params && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*
