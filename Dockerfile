@@ -8,7 +8,8 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="aptalca"
 
 # environment settings
-ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
+ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
+	APP_NAME=Heimdall
 
 RUN \
  echo "**** install runtime packages ****" && \
