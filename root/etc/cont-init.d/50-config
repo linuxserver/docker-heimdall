@@ -2,7 +2,7 @@
 
 # make our folders
 mkdir -p \
-	/config/www/{backgrounds,icons}
+	/config/www/{backgrounds,icons,avatars}
 
 # copy .env if not exists
 [[ ! -f /config/www/.env ]] && \
@@ -11,6 +11,7 @@ mkdir -p \
 # create symlinks
 
 symlinks=( \
+/var/www/localhost/heimdall/storage/app/public/avatars \
 /var/www/localhost/heimdall/storage/app/public/backgrounds \
 /var/www/localhost/heimdall/storage/app/public/icons \
 /var/www/localhost/heimdall/database/app.sqlite \

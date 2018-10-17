@@ -136,7 +136,8 @@ This image now supports password protection through htpasswd. Run the following 
 
 ## Versions
 
-* **16.10.18:** - Updated fastcgi_params for user login support
+* **17.10.18:** - Symlink avatars folder.
+* **16.10.18:** - Updated fastcgi_params for user login support.
 * **07.10.18:** - Symlink `.env` rather than copy. It now resides under `/config/www`
 * **30.09.18:** - Multi-arch image. Move `.env` to `/config`.
 * **05.09.18:** - Rebase to alpine linux 3.8.
