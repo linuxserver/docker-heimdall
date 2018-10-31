@@ -7,6 +7,8 @@ mkdir -p \
 # copy .env if not exists
 [[ ! -f /config/www/.env ]] && \
   cp /var/www/localhost/heimdall/.env /config/www/.env
+# set queue driver to database
+sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
 # create symlinks
 
