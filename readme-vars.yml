@@ -47,6 +47,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "31.10.18:", desc: "Add queue service." }
   - { date: "17.10.18:", desc: "Symlink avatars folder." }
   - { date: "16.10.18:", desc: "Updated fastcgi_params for user login support." }
   - { date: "07.10.18:", desc: "Symlink `.env` rather than copy. It now resides under `/config/www`" }
