@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+
+exec \
+       s6-setuidgid abc php /var/www/localhost/heimdall/artisan queue:work database --sleep=3 --tries=3
