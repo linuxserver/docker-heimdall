@@ -16,7 +16,7 @@ symlinks=( \
 /var/www/localhost/heimdall/storage/app/public/avatars \
 /var/www/localhost/heimdall/storage/app/public/backgrounds \
 /var/www/localhost/heimdall/storage/app/public/icons \
-/var/www/localhost/heimdall/storage/app/SupportedApps \
+/var/www/localhost/heimdall/app/SupportedApps \
 /var/www/localhost/heimdall/database/app.sqlite \
 /var/www/localhost/heimdall/.env )
 
