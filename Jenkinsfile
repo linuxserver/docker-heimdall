@@ -6,7 +6,7 @@ pipeline {
   parameters {
      string(defaultValue: 'false', description: 'package check run', name: 'PACKAGE_CHECK')
   }
-  // Configuraiton for the variables used for this specific repo
+  // Configuration for the variables used for this specific repo
   environment {
     EXT_GIT_BRANCH = 'master'
     EXT_USER = 'linuxserver'
@@ -38,7 +38,7 @@ pipeline {
         script{
           env.EXIT_STATUS = ''
           env.LS_RELEASE = sh(
-            script: '''curl -s https://api.github.com/repos/${LS_USER}/${LS_REPO}/releases/latest | jq -r '. | .tag_name' ''',
+            script: '''curl -s https://api.github.com/repos/${LS_USER}/${LS_REPO}/releases | jq -r 'first(.[] | select(.prerelease == true)) | .tag_name' ''',
             returnStdout: true).trim()
           env.LS_RELEASE_NOTES = sh(
             script: '''git log -1 --pretty=%B | sed -E ':a;N;$!ba;s/\\r{0,1}\\n/\\\\n/g' ''',
@@ -110,16 +110,16 @@ pipeline {
     }
     // If this is a github commit trigger Set the external release link
     stage("Set ENV commit_link"){
-     steps{
-       script{
-         env.RELEASE_LINK = 'https://github.com/' + env.EXT_USER + '/' + env.EXT_REPO + '/commit/' + env.EXT_RELEASE
-       }
-     }
+      steps{
+        script{
+          env.RELEASE_LINK = 'https://github.com/' + env.EXT_USER + '/' + env.EXT_REPO + '/commit/' + env.EXT_RELEASE
+        }
+      }
     }
     // If this is a master build use live docker endpoints
     stage("Set ENV live build"){
       when {
-        branch "master"
+        branch "development"
         environment name: 'CHANGE_ID', value: ''
       }
       steps {
@@ -137,7 +137,7 @@ pipeline {
     // If this is a dev build use dev docker endpoints
     stage("Set ENV dev build"){
       when {
-        not {branch "master"}
+        not {branch "development"}
         environment name: 'CHANGE_ID', value: ''
       }
       steps {
@@ -501,7 +501,7 @@ pipeline {
     // If this is a public release tag it in the LS Github and push a changelog from external repo and our internal one
     stage('Github-Tag-Push-Release') {
       when {
-        branch "master"
+        branch "development"
         expression {
           env.LS_RELEASE != env.EXT_RELEASE + '-pkg-' + env.PACKAGE_TAG + '-ls' + env.LS_TAG_NUMBER
         }
@@ -523,7 +523,7 @@ pipeline {
                      "target_commitish": "development",\
                      "name": "'${EXT_RELEASE}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}'",\
                      "body": "**LinuxServer Changes:**\\n\\n'${LS_RELEASE_NOTES}'\\n**'${EXT_REPO}' Changes:**\\n\\n' > start
-              printf '","draft": false,"prerelease": false}' >> releasebody.json
+              printf '","draft": false,"prerelease": true}' >> releasebody.json
               paste -d'\\0' start releasebody.json > releasebody.json.done
               curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${LS_USER}/${LS_REPO}/releases -d @releasebody.json.done'''
       }
