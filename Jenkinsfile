@@ -14,6 +14,7 @@ pipeline {
     BUILD_VERSION_ARG = 'HEIMDALL_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-heimdall'
+    CONTAINER_NAME = 'heimdall'
     DOCKERHUB_IMAGE = 'linuxserver/heimdall'
     DEV_DOCKERHUB_IMAGE = 'lsiodev/heimdall'
     PR_DOCKERHUB_IMAGE = 'lspipepr/heimdall'
@@ -97,21 +98,21 @@ pipeline {
     /* ########################
        External Release Tagging
        ######################## */
-    // If this is a stable github release use the latest endpoint from github to determine the ext tag
-    stage("Set ENV github_stable"){
+    // If this is a github commit trigger determine the current commit at head
+    stage("Set ENV github_commit"){
      steps{
        script{
          env.EXT_RELEASE = sh(
-           script: '''curl -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases/latest | jq -r '. | .tag_name' ''',
+           script: '''curl -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/commits/${EXT_GIT_BRANCH} | jq -r '. | .sha' | cut -c1-8 ''',
            returnStdout: true).trim()
        }
      }
     }
-    // If this is a stable or devel github release generate the link for the build message
-    stage("Set ENV github_link"){
+    // If this is a github commit trigger Set the external release link
+    stage("Set ENV commit_link"){
      steps{
        script{
-         env.RELEASE_LINK = 'https://github.com/' + env.EXT_USER + '/' + env.EXT_REPO + '/releases/tag/' + env.EXT_RELEASE
+         env.RELEASE_LINK = 'https://github.com/' + env.EXT_USER + '/' + env.EXT_REPO + '/commit/' + env.EXT_RELEASE
        }
      }
     }
@@ -444,8 +445,8 @@ pipeline {
           sh '''#! /bin/bash
              echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
              '''
-          sh "docker tag ${IMAGE}:${META_TAG} ${IMAGE}:latest"
-          sh "docker push ${IMAGE}:latest"
+          sh "docker tag ${IMAGE}:${META_TAG} ${IMAGE}:development"
+          sh "docker push ${IMAGE}:development"
           sh "docker push ${IMAGE}:${META_TAG}"
         }
       }
@@ -475,24 +476,24 @@ pipeline {
                   docker tag lsiodev/buildcache:arm32v6-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm32v6-${META_TAG}
                   docker tag lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm64v8-${META_TAG}
                 fi'''
-          sh "docker tag ${IMAGE}:amd64-${META_TAG} ${IMAGE}:amd64-latest"
-          sh "docker tag ${IMAGE}:arm32v6-${META_TAG} ${IMAGE}:arm32v6-latest"
-          sh "docker tag ${IMAGE}:arm64v8-${META_TAG} ${IMAGE}:arm64v8-latest"
+          sh "docker tag ${IMAGE}:amd64-${META_TAG} ${IMAGE}:amd64-development"
+          sh "docker tag ${IMAGE}:arm32v6-${META_TAG} ${IMAGE}:arm32v6-development"
+          sh "docker tag ${IMAGE}:arm64v8-${META_TAG} ${IMAGE}:arm64v8-development"
           sh "docker push ${IMAGE}:amd64-${META_TAG}"
           sh "docker push ${IMAGE}:arm32v6-${META_TAG}"
           sh "docker push ${IMAGE}:arm64v8-${META_TAG}"
-          sh "docker push ${IMAGE}:amd64-latest"
-          sh "docker push ${IMAGE}:arm32v6-latest"
-          sh "docker push ${IMAGE}:arm64v8-latest"
-          sh "docker manifest push --purge ${IMAGE}:latest || :"
-          sh "docker manifest create ${IMAGE}:latest ${IMAGE}:amd64-latest ${IMAGE}:arm32v6-latest ${IMAGE}:arm64v8-latest"
-          sh "docker manifest annotate ${IMAGE}:latest ${IMAGE}:arm32v6-latest --os linux --arch arm"
-          sh "docker manifest annotate ${IMAGE}:latest ${IMAGE}:arm64v8-latest --os linux --arch arm64 --variant v8"
+          sh "docker push ${IMAGE}:amd64-development"
+          sh "docker push ${IMAGE}:arm32v6-development"
+          sh "docker push ${IMAGE}:arm64v8-development"
+          sh "docker manifest push --purge ${IMAGE}:development || :"
+          sh "docker manifest create ${IMAGE}:development ${IMAGE}:amd64-development ${IMAGE}:arm32v6-development ${IMAGE}:arm64v8-development"
+          sh "docker manifest annotate ${IMAGE}:development ${IMAGE}:arm32v6-development --os linux --arch arm"
+          sh "docker manifest annotate ${IMAGE}:development ${IMAGE}:arm64v8-development --os linux --arch arm64 --variant v8"
           sh "docker manifest push --purge ${IMAGE}:${EXT_RELEASE}-ls${LS_TAG_NUMBER} || :"
           sh "docker manifest create ${IMAGE}:${META_TAG} ${IMAGE}:amd64-${META_TAG} ${IMAGE}:arm32v6-${META_TAG} ${IMAGE}:arm64v8-${META_TAG}"
           sh "docker manifest annotate ${IMAGE}:${META_TAG} ${IMAGE}:arm32v6-${META_TAG} --os linux --arch arm"
           sh "docker manifest annotate ${IMAGE}:${META_TAG} ${IMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8"
-          sh "docker manifest push --purge ${IMAGE}:latest"
+          sh "docker manifest push --purge ${IMAGE}:development"
           sh "docker manifest push --purge ${IMAGE}:${META_TAG}"
         }
       }
@@ -512,14 +513,14 @@ pipeline {
         sh '''curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${LS_USER}/${LS_REPO}/git/tags \
         -d '{"tag":"'${EXT_RELEASE}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}'",\
              "object": "'${COMMIT_SHA}'",\
-             "message": "Tagging Release '${EXT_RELEASE}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}' to master",\
+             "message": "Tagging Release '${EXT_RELEASE}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}' to development",\
              "type": "commit",\
              "tagger": {"name": "LinuxServer Jenkins","email": "jenkins@linuxserver.io","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
         sh '''#! /bin/bash
-              curl -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases/latest | jq '. |.body' | sed 's:^.\\(.*\\).$:\\1:' > releasebody.json
+              curl -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/commits/${EXT_GIT_BRANCH} | jq '. | .commit.message' | sed 's:^.\\(.*\\).$:\\1:' > releasebody.json
               echo '{"tag_name":"'${EXT_RELEASE}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}'",\
-                     "target_commitish": "master",\
+                     "target_commitish": "development",\
                      "name": "'${EXT_RELEASE}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}'",\
                      "body": "**LinuxServer Changes:**\\n\\n'${LS_RELEASE_NOTES}'\\n**'${EXT_REPO}' Changes:**\\n\\n' > start
               printf '","draft": false,"prerelease": false}' >> releasebody.json
