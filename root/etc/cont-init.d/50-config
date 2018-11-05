@@ -2,7 +2,7 @@
 
 # make our folders
 mkdir -p \
-	/config/www/{backgrounds,icons,avatars}
+	/config/www/{backgrounds,icons,avatars,SupportedApps}
 
 # copy .env if not exists
 [[ ! -f /config/www/.env ]] && \
