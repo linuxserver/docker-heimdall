@@ -57,7 +57,7 @@ php7-session php7-session-7.2.10-r0
 php7-simplexml php7-simplexml-7.2.10-r0
 php7-xml php7-xml-7.2.10-r0
 php7-xmlwriter php7-xmlwriter-7.2.10-r0
-curl curl-7.61.1-r0
+curl curl-7.61.1-r1
 php7-ctype php7-ctype-7.2.10-r0
 php7-pdo php7-pdo-7.2.10-r0
 sqlite-libs sqlite-libs-3.24.0-r0
