@@ -11,6 +11,7 @@ pipeline {
     EXT_GIT_BRANCH = 'master'
     EXT_USER = 'linuxserver'
     EXT_REPO = 'Heimdall'
+    CONTAINER_NAME = 'heimdall'
     BUILD_VERSION_ARG = 'HEIMDALL_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-heimdall'
