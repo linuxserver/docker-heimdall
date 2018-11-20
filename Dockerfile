@@ -12,8 +12,9 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
 RUN \
  echo "**** install runtime packages ****" && \
- apk add --no-cache \
+ apk add --no-cache --upgrade \
 	curl \
+	nginx \
 	php7-ctype \
 	php7-pdo_sqlite \
 	php7-tokenizer \
@@ -23,7 +24,7 @@ RUN \
  mkdir -p \
 	/var/www/localhost/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \
- 	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" \
+	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]'); \
  fi && \
  curl -o \
