@@ -21,6 +21,7 @@ From August 2018 onwards, Linuxserver are in the midst of switching to a new CI 
 TLDR: Multi-arch support is changing from multiple repos to one repo per container image.
 
 # [linuxserver/heimdall](https://github.com/linuxserver/docker-heimdall)
+[![](https://img.shields.io/discord/354974912613449730.svg?logo=discord&label=LSIO%20Discord&style=flat-square)](https://discord.gg/YWrKVTn)
 [![](https://images.microbadger.com/badges/version/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")
 ![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/heimdall.svg)
@@ -59,6 +60,7 @@ docker create \
   -p 80:80 \
   -p 443:443 \
   -v </path/to/appdata/config>:/config \
+  --restart unless-stopped
   linuxserver/heimdall
 ```
 
@@ -136,6 +138,8 @@ This image now supports password protection through htpasswd. Run the following 
 
 ## Versions
 
+* **20.11.18:** - Upgrade baseimage packages during build.
+* **04.11.18:** - Add php7-zip.
 * **31.10.18:** - Add queue service.
 * **17.10.18:** - Symlink avatars folder.
 * **16.10.18:** - Updated fastcgi_params for user login support.
