@@ -35,13 +35,13 @@ Why not use it as your browser start page? It even has the ability to include a 
 
 ## Supported Architectures
 
-Our images support multiple architectures such as `X86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list). 
+Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list). 
 
 The architectures supported by this image are:
 
 | Architecture | Tag |
 | :----: | --- |
-| X86-64 | amd64-latest |
+| x86-64 | amd64-latest |
 | arm64 | arm64v8-latest |
 | armhf | arm32v6-latest |
 
@@ -60,7 +60,7 @@ docker create \
   -p 80:80 \
   -p 443:443 \
   -v </path/to/appdata/config>:/config \
-  --restart unless-stopped
+  --restart unless-stopped \
   linuxserver/heimdall
 ```
 
