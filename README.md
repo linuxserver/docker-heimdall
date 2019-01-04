@@ -138,6 +138,7 @@ This image now supports password protection through htpasswd. Run the following 
 
 ## Versions
 
+* **04.01.18:** - Generate random app key in .env for new installs.
 * **20.11.18:** - Upgrade baseimage packages during build.
 * **04.11.18:** - Add php7-zip.
 * **31.10.18:** - Add queue service.

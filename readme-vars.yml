@@ -47,6 +47,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "04.01.18:", desc: "Generate random app key in .env for new installs." }
   - { date: "20.11.18:", desc: "Upgrade baseimage packages during build." }
   - { date: "04.11.18:", desc: "Add php7-zip." }
   - { date: "31.10.18:", desc: "Add queue service." }
