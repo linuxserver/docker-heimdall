@@ -4,12 +4,6 @@
 mkdir -p \
 	/config/www/{backgrounds,icons,avatars,SupportedApps}
 
-# copy .env if not exists
-[[ ! -f /config/www/.env ]] && \
-  cp /var/www/localhost/heimdall/.env /config/www/.env
-# set queue driver to database
-sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
-
 # create symlinks
 
 symlinks=( \
@@ -25,6 +19,13 @@ do
 [[ -e "$i" && ! -L "$i" ]] && rm -rf "$i"
 [[ ! -L "$i" ]] && ln -s /config/www/"$(basename "$i")" "$i"
 done
+
+# copy .env if not exists
+[[ ! -f /config/www/.env ]] && \
+  cp /var/www/localhost/heimdall/.env.example /config/www/.env && \
+  php /var/www/html/artisan key:generate
+# set queue driver to database
+sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
 # permissions
 chown -R abc:abc \
