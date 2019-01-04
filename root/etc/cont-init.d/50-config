@@ -23,7 +23,7 @@ done
 # copy .env if not exists
 [[ ! -f /config/www/.env ]] && \
   cp /var/www/localhost/heimdall/.env.example /config/www/.env && \
-  php /var/www/html/artisan key:generate
+  php /var/www/localhost/heimdall/artisan key:generate
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
