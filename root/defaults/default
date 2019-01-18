@@ -1,4 +1,4 @@
-## Version 2018/03/06 - Changelog: https://github.com/linuxserver/docker-heimdall/commits/master/root/defaults/default
+## Version 2019/01/18 - Changelog: https://github.com/linuxserver/docker-heimdall/commits/master/root/defaults/default
 
 server {
 	listen 80 default_server;
@@ -16,6 +16,13 @@ server {
 	client_max_body_size 0;
 	
         error_page 599 = @noauth;
+
+        add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; form-action 'self' https://www.google.com/search https://duckduckgo.com/ https://www.bing.com/search https://www.startpage.com/;" always;
+        add_header Feature-Policy "accelerometer 'none'; ambient-light-sensor 'none'; encrypted-media 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; sync-xhr 'none'; usb 'none'; vr 'none'";
+        add_header Referrer-Policy "strict-origin";
+        add_header X-Xss-Protection "1; mode=block" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header X-Content-Type-Options nosniff;
 
         location / {
                 if (!-f /config/nginx/.htpasswd) {
