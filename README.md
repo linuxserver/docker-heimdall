@@ -64,6 +64,11 @@ docker create \
   linuxserver/heimdall
 ```
 
+Using tags, you can switch between the stable releases of Heimdall and the master branch. No tag is required for the latest stable release.  
+Add the `development` tag, if required, to the `linuxserver/heimdall` line of the run/create command in the following format, `linuxserver/heimdall:development`.  
+The `development` tag will be the latest commit in the master branch of Heimdall.  
+HOWEVER, USE THE DEVELOPMENT TAG AT YOUR OWN PERIL !!!!!!!!!
+
 
 ### docker-compose
 
