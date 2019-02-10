@@ -27,6 +27,50 @@ done
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
+# set .env vars from environment, if set
+[[ ! -z $APP_NAME ]] && \
+  sed -i 's/APP_NAME=.\+/APP_NAME='"$APP_NAME"'/' /config/www/.env
+[[ ! -z $APP_DEBUG ]] && \
+  sed -i 's/APP_DEBUG=.\+/APP_DEBUG='"$APP_DEBUG"'/' /config/www/.env
+[[ ! -z $APP_LOG_LEVEL ]] && \
+  sed -i 's/APP_LOG_LEVEL=.\+/APP_LOG_LEVEL='"$APP_LOG_LEVEL"'/' /config/www/.env
+[[ ! -z $APP_URL ]] && \
+  sed -i 's%APP_URL=.\+%APP_URL='"$APP_URL"'%' /config/www/.env
+[[ ! -z $DB_CONNECTION ]] && \
+  sed -i 's/DB_CONNECTION=.\+/DB_CONNECTION='"$DB_CONNECTION"'/' /config/www/.env
+[[ ! -z $DB_DATABASE ]] && \
+  sed -i 's/DB_DATABASE=.\+/DB_DATABASE='"$DB_DATABASE"'/' /config/www/.env
+[[ ! -z $REDIS_HOST ]] && \
+  sed -i 's/REDIS_HOST=.\+/REDIS_HOST='"$REDIS_HOST"'/' /config/www/.env
+[[ ! -z $REDIS_PASSWORD ]] && \
+  sed -i 's/REDIS_PASSWORD=.\+/REDIS_PASSWORD='"$REDIS_PASSWORD"'/' /config/www/.env
+[[ ! -z $REDIS_PORT ]] && \
+  sed -i 's/REDIS_PORT=.\+/REDIS_PORT='"$REDIS_PORT"'/' /config/www/.env
+[[ ! -z $MAIL_DRIVER ]] && \
+  sed -i 's/MAIL_DRIVER=.\+/MAIL_DRIVER='"$MAIL_DRIVER"'/' /config/www/.env
+[[ ! -z $MAIL_HOST ]] && \
+  sed -i 's/MAIL_HOST=.\+/MAIL_HOST='"$MAIL_HOST"'/' /config/www/.env
+[[ ! -z $MAIL_PORT ]] && \
+  sed -i 's/MAIL_PORT=.\+/MAIL_PORT='"$MAIL_PORT"'/' /config/www/.env
+[[ ! -z $MAIL_USERNAME ]] && \
+  sed -i 's/MAIL_USERNAME=.\+/MAIL_USERNAME='"$MAIL_USERNAME"'/' /config/www/.env
+[[ ! -z $MAIL_PASSWORD ]] && \
+  sed -i 's/MAIL_PASSWORD=.\+/MAIL_PASSWORD='"$MAIL_PASSWORD"'/' /config/www/.env
+[[ ! -z $MAIL_ENCRYPTION ]] && \
+  sed -i 's/MAIL_ENCRYPTION=.\+/MAIL_ENCRYPTION='"$MAIL_ENCRYPTION"'/' /config/www/.env
+[[ ! -z $PUSHER_APP_ID ]] && \
+  sed -i 's/PUSHER_APP_ID=.\+/PUSHER_APP_ID='"$PUSHER_APP_ID"'/' /config/www/.env
+[[ ! -z $PUSHER_APP_KEY ]] && \
+  sed -i 's%PUSHER_APP_KEY=.\+%PUSHER_APP_KEY='"$PUSHER_APP_KEY"'%' /config/www/.env
+[[ ! -z $PUSHER_APP_SECRET ]] && \
+  sed -i 's/PUSHER_APP_SECRET=.\+/PUSHER_APP_SECRET='"$PUSHER_APP_SECRET"'/' /config/www/.env
+[[ ! -z $PUSHER_APP_CLUSTER ]] && \
+  sed -i 's/PUSHER_APP_CLUSTER=.\+/PUSHER_APP_CLUSTER='"$PUSHER_APP_CLUSTER"'/' /config/www/.env
+[[ ! -z $FORCE_HTTPS ]] && \
+  (grep -q -e "FORCE_HTTPS=" /config/www/.env || \
+    cat "FORCE_HTTPS=$FORCE_HTTPS" >> /config/www/.env) && \
+  sed -i 's/FORCE_HTTPS=.\+/FORCE_HTTPS='"$FORCE_HTTPS"'/' /config/www/.env
+
 # permissions
 chown -R abc:abc \
 	/config \
