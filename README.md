@@ -168,6 +168,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **22.02.19:** - Rebasing to alpine 3.9.
 * **16.01.18:** - Generate random app key in .env for new installs.
 * **20.11.18:** - Upgrade baseimage packages during build.
 * **04.11.18:** - Add php7-zip.
