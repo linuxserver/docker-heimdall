@@ -26,6 +26,8 @@ TLDR: Multi-arch support is changing from multiple repos to one repo per contain
 [![](https://images.microbadger.com/badges/image/linuxserver/heimdall.svg)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")
 ![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/heimdall.svg)
 ![Docker Stars](https://img.shields.io/docker/stars/linuxserver/heimdall.svg)
+[![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Pipeline-Builders/docker-heimdall/master)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-heimdall/job/master/)
+[![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/heimdall/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/heimdall/latest/index.html)
 
 [Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way.
 Simplicity is the key to Heimdall.
@@ -37,6 +39,8 @@ Why not use it as your browser start page? It even has the ability to include a 
 
 Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list). 
 
+Simply pulling `linuxserver/heimdall` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+
 The architectures supported by this image are:
 
 | Architecture | Tag |
@@ -44,6 +48,7 @@ The architectures supported by this image are:
 | x86-64 | amd64-latest |
 | arm64 | arm64v8-latest |
 | armhf | arm32v6-latest |
+
 
 ## Usage
 
@@ -120,6 +125,7 @@ In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
+
 &nbsp;
 ## Application Setup
 
@@ -141,8 +147,28 @@ This image now supports password protection through htpasswd. Run the following 
 * image version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/heimdall`
 
+## Updating Info
+
+Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.  
+  
+Below are the instructions for updating containers:  
+  
+### Via Docker Run/Create
+* Update the image: `docker pull linuxserver/heimdall`
+* Stop the running container: `docker stop heimdall`
+* Delete the container: `docker rm heimdall`
+* Recreate a new container with the same docker create parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
+* Start the new container: `docker start heimdall`
+* You can also remove the old dangling images: `docker image prune`
+
+### Via Docker Compose
+* Update the image: `docker-compose pull linuxserver/heimdall`
+* Let compose update containers as necessary: `docker-compose up -d`
+* You can also remove the old dangling images: `docker image prune`
+
 ## Versions
 
+* **22.02.19:** - Rebasing to alpine 3.9.
 * **04.11.18:** - Add php7-zip.
 * **31.10.18:** - Add queue service.
 * **17.10.18:** - Symlink avatars folder.
