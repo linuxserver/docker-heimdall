@@ -52,6 +52,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "16.01.18:", desc: "Generate random app key in .env for new installs." }
   - { date: "20.11.18:", desc: "Upgrade baseimage packages during build." }
   - { date: "04.11.18:", desc: "Add php7-zip." }
