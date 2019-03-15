@@ -17,6 +17,12 @@ available_architectures:
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
   - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
 
+# development version
+development_versions: true
+development_versions_items:
+  - { tag: "latest", desc: "Stable Heimdall releases." }
+  - { tag: "development", desc: "Latest commit from the github master branch." }
+
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
@@ -31,15 +37,6 @@ param_usage_include_env: true
 param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London"}
 
-# optional parameters
-optional_block_1: true
-optional_block_1_items:
-  - |
-    Using tags, you can switch between the stable releases of Heimdall and the master branch. No tag is required for the latest stable release.  
-    Add the `development` tag, if required, to the `linuxserver/heimdall` line of the run/create command in the following format, `linuxserver/heimdall:development`.  
-    The `development` tag will be the latest commit in the master branch of Heimdall.  
-    HOWEVER, USE THE DEVELOPMENT TAG AT YOUR OWN PERIL !!!!!!!!!
-
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -52,6 +49,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "15.03.19:", desc: "Clarify docker image tags in readme." }
   - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "16.01.18:", desc: "Generate random app key in .env for new installs." }
   - { date: "20.11.18:", desc: "Upgrade baseimage packages during build." }

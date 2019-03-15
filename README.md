@@ -43,6 +43,14 @@ The architectures supported by this image are:
 | arm64 | arm64v8-latest |
 | armhf | arm32v6-latest |
 
+## Version Tags
+
+This image provides various versions that are available via tags. `latest` tag usually provides the latest stable version. Others are considered under development and caution must be exercised when using them.
+
+| Tag | Description |
+| :----: | --- |
+| latest | Stable Heimdall releases. |
+| development | Latest commit from the github master branch. |
 
 ## Usage
 
@@ -62,11 +70,6 @@ docker create \
   --restart unless-stopped \
   linuxserver/heimdall
 ```
-
-Using tags, you can switch between the stable releases of Heimdall and the master branch. No tag is required for the latest stable release.  
-Add the `development` tag, if required, to the `linuxserver/heimdall` line of the run/create command in the following format, `linuxserver/heimdall:development`.  
-The `development` tag will be the latest commit in the master branch of Heimdall.  
-HOWEVER, USE THE DEVELOPMENT TAG AT YOUR OWN PERIL !!!!!!!!!
 
 
 ### docker-compose
@@ -172,6 +175,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **15.03.19:** - Clarify docker image tags in readme.
 * **22.02.19:** - Rebasing to alpine 3.9.
 * **16.01.18:** - Generate random app key in .env for new installs.
 * **20.11.18:** - Upgrade baseimage packages during build.
