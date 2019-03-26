@@ -34,7 +34,7 @@ done
 # copy .env if not exists
 [[ ! -f /config/www/.env ]] && \
   cp /var/www/localhost/heimdall/.env.example /config/www/.env && \
-  echo "Creating app key. This may take a while on slower systems"
+  echo "Creating app key. This may take a while on slower systems" && \
   php /var/www/localhost/heimdall/artisan key:generate
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
