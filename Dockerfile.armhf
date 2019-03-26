@@ -22,20 +22,14 @@ RUN \
 	tar && \
  echo "**** install heimdall ****" && \
  mkdir -p \
-	/var/www/localhost/heimdall && \
+	/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \
 	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]'); \
  fi && \
  curl -o \
- /tmp/heimdall.tar.gz -L \
+ /heimdall/heimdall.tar.gz -L \
 	"https://github.com/linuxserver/Heimdall/archive/${HEIMDALL_RELEASE}.tar.gz" && \
- tar xf \
- /tmp/heimdall.tar.gz -C \
-	/var/www/localhost/heimdall --strip-components=1 && \
- echo "**** configure nginx ****" && \
- echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
-        /etc/nginx/fastcgi_params && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*
