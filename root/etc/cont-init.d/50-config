@@ -13,7 +13,8 @@ mkdir -p \
 	/var/www/localhost/heimdall --strip-components=1 && \
  echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
 	/etc/nginx/fastcgi_params && \
- rm -rf /heimdall
+ rm -rf /heimdall && \
+ chown -R abc:abc /var/www/localhost/heimdall
 
 # create symlinks
 
@@ -55,7 +56,6 @@ done
 echo "Setting permissions"
 abc_dirs=( \
 /config \
-/var/www/localhost/heimdall \
 )
 for i in "${abc_dirs[@]}"; do
         if [ "$(ls -A ${i})" ]; then
