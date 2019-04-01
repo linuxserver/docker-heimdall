@@ -40,29 +40,7 @@ done
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
-# function to randomly sample 5 files for their owner and only chown if not abc
-chowner () {
-files=(${1}/**)
-for i in {1..50}; do
-        user=$(stat -c '%U' $(printf "%s\n" "${files[RANDOM % ${#files[@]}]}"))
-        if [ "${user}" != "abc" ]; then
-                echo "chowning ${1}"
-                chown -R abc:abc ${1}
-                break
-        fi
-done
-}
-
 # permissions
 echo "Setting permissions"
-shopt -s globstar
-abc_dirs=( \
-/config \
-)
-for i in "${abc_dirs[@]}"; do
-        if [ "$(ls -A ${i})" ]; then
-                chowner ${i}
-        else
-                chown -R abc:abc ${i}
-        fi
-done
+chown -R abc:abc \
+	/config
