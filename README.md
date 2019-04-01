@@ -174,6 +174,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **01.04.19:** - Fix permission detect logic.
 * **26.03.19:** - Install Heimdall during container start to prevent delayed start due to overlayfs bug with recursive chown.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **15.03.19:** - Clarify docker image tags in readme.

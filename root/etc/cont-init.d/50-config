@@ -42,10 +42,11 @@ sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
 # function to randomly sample 5 files for their owner and only chown if not abc
 chowner () {
-files=(${1}/*)
-for i in {1..5}; do
+files=(${1}/**)
+for i in {1..50}; do
         user=$(stat -c '%U' $(printf "%s\n" "${files[RANDOM % ${#files[@]}]}"))
         if [ "${user}" != "abc" ]; then
+                echo "chowning /config"
                 chown -R abc:abc ${1}
                 break
         fi
@@ -54,6 +55,7 @@ done
 
 # permissions
 echo "Setting permissions"
+shopt -s globstar
 abc_dirs=( \
 /config \
 )
