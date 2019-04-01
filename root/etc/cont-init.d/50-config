@@ -46,7 +46,7 @@ files=(${1}/**)
 for i in {1..50}; do
         user=$(stat -c '%U' $(printf "%s\n" "${files[RANDOM % ${#files[@]}]}"))
         if [ "${user}" != "abc" ]; then
-                echo "chowning /config"
+                echo "chowning ${1}"
                 chown -R abc:abc ${1}
                 break
         fi
