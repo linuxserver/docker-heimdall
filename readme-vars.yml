@@ -49,6 +49,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "01.04.19:", desc: "Fix permission detect logic." }
   - { date: "26.03.19:", desc: "Install Heimdall during container start to prevent delayed start due to overlayfs bug with recursive chown." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
