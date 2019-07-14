@@ -12,7 +12,8 @@ symlinks=( \
 /var/www/localhost/heimdall/storage/app/public/icons \
 /var/www/localhost/heimdall/app/SupportedApps \
 /var/www/localhost/heimdall/database/app.sqlite \
-/var/www/localhost/heimdall/.env )
+/var/www/localhost/heimdall/.env \
+/var/www/localhost/heimdall/storage/logs/laravel.log )
 
 for i in "${symlinks[@]}"
 do
