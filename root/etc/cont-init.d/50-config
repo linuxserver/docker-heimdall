@@ -2,7 +2,8 @@
 
 # make our folders
 mkdir -p \
-	/config/www/{backgrounds,icons,avatars,SupportedApps}
+	/config/www/{backgrounds,icons,avatars,SupportedApps} \
+	/config/log/heimdall
 
 # create symlinks
 
@@ -12,14 +13,18 @@ symlinks=( \
 /var/www/localhost/heimdall/storage/app/public/icons \
 /var/www/localhost/heimdall/app/SupportedApps \
 /var/www/localhost/heimdall/database/app.sqlite \
-/var/www/localhost/heimdall/.env \
-/var/www/localhost/heimdall/storage/logs/laravel.log )
+/var/www/localhost/heimdall/.env )
 
 for i in "${symlinks[@]}"
 do
 [[ -e "$i" && ! -L "$i" ]] && rm -rf "$i"
 [[ ! -L "$i" ]] && ln -s /config/www/"$(basename "$i")" "$i"
 done
+
+[[ -e "/var/www/localhost/heimdall/storage/logs/laravel.log" && ! -L "/var/www/localhost/heimdall/storage/logs/laravel.log" ]] \
+	&& rm -rf "/var/www/localhost/heimdall/storage/logs/laravel.log"
+[[ ! -L "/var/www/localhost/heimdall/storage/logs/laravel.log" ]] && \
+	ln -s "/config/log/heimdall/laravel.log" "/var/www/localhost/heimdall/storage/logs/laravel.log"
 
 # copy .env if not exists
 [[ ! -f /config/www/.env ]] && \
