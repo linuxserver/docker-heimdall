@@ -52,7 +52,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "14.07.19:", desc: "Save laravel.log to /config" }
+  - { date: "15.07.19:", desc: "Save laravel.log to /config, install heimdall during first start." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
