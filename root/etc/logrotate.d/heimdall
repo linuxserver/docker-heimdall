@@ -1,0 +1,9 @@
+/config/log/heimdall/laravel.log {
+        size 5M
+        rotate 5
+        compress
+        nodateext
+        notifempty
+        missingok
+        su abc abc
+}
