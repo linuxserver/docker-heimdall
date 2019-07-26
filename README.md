@@ -194,6 +194,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **26.07.19:** - Modify development branch to include integrated IDE.
 * **15.07.19:** - Save laravel.log to /config, install heimdall during first start.
 * **28.06.19:** - Rebasing to alpine 3.10.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
