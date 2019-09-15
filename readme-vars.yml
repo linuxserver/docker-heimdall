@@ -49,6 +49,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "15.09.19:", desc: "Add php7-curl." }
   - { date: "16.07.19:", desc: "Save laravel.log to /config/log/heimdall." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "01.04.19:", desc: "Fix permission detect logic." }
