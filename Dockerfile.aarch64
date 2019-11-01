@@ -16,6 +16,7 @@ RUN \
 	curl \
 	nginx \
 	php7-ctype \
+	php7-pdo_pgsql \
 	php7-pdo_sqlite \
 	php7-tokenizer \
 	php7-zip \
