@@ -22,7 +22,7 @@ libcurl-7.66.0-r0
 libedit-20190324.3.1-r0
 libldap-2.4.48-r0
 libmagic-5.37-r1
-libpq-11.5-r1
+libpq-11.6-r0
 libressl2.7-libcrypto-2.7.5-r0
 libressl2.7-libssl-2.7.5-r0
 libsasl-2.1.27-r3
