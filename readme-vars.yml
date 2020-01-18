@@ -49,6 +49,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "17.01.20:", desc: "Clean up nginx defaults." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "16.07.19:", desc: "Save laravel.log to /config/log/heimdall." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }

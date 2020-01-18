@@ -21,6 +21,7 @@ RUN \
 	php7-tokenizer \
 	php7-zip \
 	tar && \
+ rm -f /etc/nginx/conf.d/default.conf && \
  echo "**** install heimdall ****" && \
  mkdir -p \
 	/heimdall && \
