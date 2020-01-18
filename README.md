@@ -223,6 +223,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **17.01.20:** - Use nginx from baseimage.
 * **19.12.19:** - Rebasing to alpine 3.11.
 * **16.07.19:** - Save laravel.log to /config/log/heimdall.
 * **28.06.19:** - Rebasing to alpine 3.10.

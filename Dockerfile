@@ -14,7 +14,6 @@ RUN \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
 	curl \
-	nginx \
 	php7-ctype \
 	php7-pdo_pgsql \
 	php7-pdo_sqlite \
