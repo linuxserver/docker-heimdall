@@ -40,7 +40,7 @@ ncurses-libs-6.1_p20191130-r0
 ncurses-terminfo-6.1_p20191130-r0
 ncurses-terminfo-base-6.1_p20191130-r0
 nghttp2-libs-1.40.0-r0
-nginx-1.16.1-r4
+nginx-1.16.1-r6
 openssl-1.1.1d-r3
 pcre-8.43-r0
 pcre2-10.34-r1
