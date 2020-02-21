@@ -74,12 +74,12 @@ Here are some example snippets to help you get started creating a container.
 ```
 docker create \
   --name=heimdall \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Europe/London \
-  -p 80:80 \
-  -p 443:443 \
-  -v </path/to/appdata/config>:/config \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=Europe/London \
+  --publish 80:80 \
+  --publish 443:443 \
+  --volume </path/to/appdata/config>:/config \
   --restart unless-stopped \
   linuxserver/heimdall
 ```
