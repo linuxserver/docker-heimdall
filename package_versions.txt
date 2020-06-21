@@ -6,7 +6,7 @@ apr-1.7.0-r0
 apr-util-1.6.1-r6
 argon2-libs-20190702-r1
 bash-5.0.17-r0
-busybox-1.31.1-r16
+busybox-1.31.1-r19
 ca-certificates-20191127-r3
 ca-certificates-bundle-20191127-r3
 coreutils-8.32-r0
@@ -63,7 +63,7 @@ readline-8.0.4-r0
 scanelf-1.2.6-r0
 shadow-4.8.1-r0
 sqlite-libs-3.32.1-r0
-ssl_client-1.31.1-r16
+ssl_client-1.31.1-r19
 tar-1.32-r1
 tzdata-2020a-r0
 xz-5.2.5-r0
