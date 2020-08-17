@@ -15,6 +15,7 @@ RUN \
  apk add --no-cache --upgrade \
 	curl \
 	php7-ctype \
+	php7-curl \
 	php7-pdo_pgsql \
 	php7-pdo_sqlite \
 	php7-tokenizer \
