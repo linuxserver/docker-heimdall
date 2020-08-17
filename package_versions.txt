@@ -1,6 +1,6 @@
 alpine-baselayout-3.2.0-r7
 alpine-keys-2.2-r0
-apache2-utils-2.4.43-r0
+apache2-utils-2.4.46-r0
 apk-tools-2.10.5-r1
 apr-1.7.0-r0
 apr-util-1.6.1-r6
@@ -48,6 +48,7 @@ pcre2-10.35-r0
 php7-7.3.21-r0
 php7-common-7.3.21-r0
 php7-ctype-7.3.21-r0
+php7-curl-7.3.21-r0
 php7-fileinfo-7.3.21-r0
 php7-fpm-7.3.21-r0
 php7-json-7.3.21-r0
