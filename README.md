@@ -236,6 +236,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **23.01.21:** - Rebasing to alpine 3.13.
 * **17.08.20:** - Add php7-curl.
 * **01.06.20:** - Rebasing to alpine 3.12.
 * **17.01.20:** - Use nginx from baseimage.
