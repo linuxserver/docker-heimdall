@@ -21,9 +21,9 @@ libcrypto1.1-1.1.1j-r0
 libcurl-7.69.1-r3
 libedit-20191231.3.1-r0
 libintl-0.20.2-r0
-libldap-2.4.50-r1
+libldap-2.4.50-r2
 libmagic-5.38-r0
-libpq-12.5-r0
+libpq-12.6-r0
 libproc-3.3.16-r0
 libressl3.1-libcrypto-3.1.2-r0
 libressl3.1-libssl-3.1.2-r0
