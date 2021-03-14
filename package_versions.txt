@@ -13,7 +13,7 @@ coreutils-8.32-r0
 curl-7.69.1-r3
 db-5.3.28-r1
 expat-2.2.9-r1
-git-2.26.2-r0
+git-2.26.3-r0
 libacl-2.2.53-r0
 libattr-2.4.48-r0
 libc-utils-0.7.2-r3
