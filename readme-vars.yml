@@ -28,11 +28,10 @@ common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "</path/to/appdata/config>", desc: "Contains all relevant configuration files." }
+  - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Contains all relevant configuration files." }
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "80", internal_port: "80", port_desc: "http gui" }
-  - { external_port: "443", internal_port: "443", port_desc: "https gui" }
+  - { external_port: "3000", internal_port: "3000", port_desc: "http gui" }
 param_usage_include_env: true
 param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London"}
@@ -49,6 +48,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "12.04.21:", desc: "Add experimental `js` tag for v3." }
   - { date: "10.02.21:", desc: "Revert to alpine 3.12 as php 7.4 broke laravel." }
   - { date: "10.02.21:", desc: "Rebasing to alpine 3.13." }
   - { date: "17.08.20:", desc: "Add php7-curl." }

@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+cd /app/heimdall || exit
+
+exec \
+    s6-setuidgid abc npm run server

@@ -35,7 +35,7 @@ Find us at:
 [![MicroBadger Layers](https://img.shields.io/microbadger/layers/linuxserver/heimdall.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge)](https://microbadger.com/images/linuxserver/heimdall "Get your own version badge on microbadger.com")
 [![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/heimdall.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/linuxserver/heimdall)
 [![Docker Stars](https://img.shields.io/docker/stars/linuxserver/heimdall.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/heimdall)
-[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-heimdall%2Fjob%2Fmaster%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-heimdall/job/master/)
+[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-heimdall%2Fjob%2Fjs%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-heimdall/job/js/)
 [![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fheimdall%2Flatest%2Fci-status.yml)](https://ci-tests.linuxserver.io/linuxserver/heimdall/latest/index.html)
 
 [Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way.
@@ -87,10 +87,9 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - </path/to/appdata/config>:/config
+      - /path/to/appdata/config:/config
     ports:
-      - 80:80
-      - 443:443
+      - 3000:3000
     restart: unless-stopped
 ```
 
@@ -102,9 +101,8 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/London \
-  -p 80:80 \
-  -p 443:443 \
-  -v </path/to/appdata/config>:/config \
+  -p 3000:3000 \
+  -v /path/to/appdata/config:/config \
   --restart unless-stopped \
   ghcr.io/linuxserver/heimdall
 ```
@@ -116,8 +114,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 | Parameter | Function |
 | :----: | --- |
-| `-p 80` | http gui |
-| `-p 443` | https gui |
+| `-p 3000` | http gui |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London |
@@ -236,6 +233,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **12.04.21:** - Add experimental `js` tag for v3.
 * **10.02.21:** - Revert to alpine 3.12 as php 7.4 broke laravel.
 * **10.02.21:** - Rebasing to alpine 3.13.
 * **17.08.20:** - Add php7-curl.
