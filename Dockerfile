@@ -18,7 +18,7 @@ RUN \
   	curl \
   	g++ \
   	make \
-  	python3 && \
+  	python2 && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     nodejs \
