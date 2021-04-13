@@ -17,6 +17,9 @@ if [ ! -f "/config/env" ]; then
     cd /app/heimdall
     npm run db:migrate
     npm run db:seed
+else
+    cd /app/heimdall
+    npm run db:migrate
 fi
 
 # permissions

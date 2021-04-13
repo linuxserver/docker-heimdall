@@ -15,10 +15,10 @@ ENV \
 RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
-  	curl \
-  	g++ \
-  	make \
-  	python2 && \
+    curl \
+    g++ \
+    make \
+    python2 && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     nodejs \
