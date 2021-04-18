@@ -1,7 +1,7 @@
 alpine-baselayout-3.2.0-r7
 alpine-keys-2.2-r0
 apache2-utils-2.4.46-r1
-apk-tools-2.10.5-r3
+apk-tools-2.10.6-r0
 apr-1.7.0-r0
 apr-util-1.6.1-r6
 argon2-libs-20190702-r1
@@ -10,14 +10,14 @@ busybox-1.31.1-r20
 ca-certificates-20191127-r4
 ca-certificates-bundle-20191127-r4
 coreutils-8.32-r0
-curl-7.69.1-r3
+curl-7.76.1-r0
 expat-2.2.9-r1
 git-2.26.3-r0
 libacl-2.2.53-r0
 libattr-2.4.48-r0
 libc-utils-0.7.2-r3
 libcrypto1.1-1.1.1k-r0
-libcurl-7.69.1-r3
+libcurl-7.76.1-r0
 libedit-20191231.3.1-r0
 libintl-0.20.2-r0
 libmagic-5.38-r0
