@@ -18,6 +18,7 @@ RUN \
 	php7-curl \
 	php7-pdo_pgsql \
 	php7-pdo_sqlite \
+	php7-pdo_mysql \
 	php7-tokenizer \
 	php7-zip \
 	tar && \
