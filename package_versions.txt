@@ -10,7 +10,7 @@ busybox-1.31.1-r20
 ca-certificates-20191127-r4
 ca-certificates-bundle-20191127-r4
 coreutils-8.32-r0
-curl-7.76.1-r0
+curl-7.77.0-r0
 db-5.3.28-r1
 expat-2.2.9-r1
 git-2.26.3-r0
@@ -18,7 +18,7 @@ libacl-2.2.53-r0
 libattr-2.4.48-r0
 libc-utils-0.7.2-r3
 libcrypto1.1-1.1.1k-r0
-libcurl-7.76.1-r0
+libcurl-7.77.0-r0
 libedit-20191231.3.1-r0
 libintl-0.20.2-r0
 libldap-2.4.50-r2
@@ -41,7 +41,7 @@ nano-4.9.3-r0
 ncurses-libs-6.2_p20200523-r0
 ncurses-terminfo-base-6.2_p20200523-r0
 nghttp2-libs-1.41.0-r0
-nginx-1.18.0-r1
+nginx-1.18.0-r2
 openssl-1.1.1k-r0
 pcre-8.44-r0
 pcre2-10.35-r0
