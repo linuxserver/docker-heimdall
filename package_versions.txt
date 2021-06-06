@@ -37,7 +37,7 @@ nano-4.9.3-r0
 ncurses-libs-6.2_p20200523-r0
 ncurses-terminfo-base-6.2_p20200523-r0
 nghttp2-libs-1.41.0-r0
-nginx-1.18.0-r2
+nginx-1.18.0-r3
 openssl-1.1.1k-r0
 pcre-8.44-r0
 pcre2-10.35-r0
@@ -62,7 +62,7 @@ procps-3.3.16-r0
 readline-8.0.4-r0
 scanelf-1.2.6-r0
 shadow-4.8.1-r0
-sqlite-libs-3.32.1-r0
+sqlite-libs-3.32.1-r1
 ssl_client-1.31.1-r20
 tar-1.32-r2
 tzdata-2021a-r0
