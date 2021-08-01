@@ -24,8 +24,8 @@ musl-utils-1.2.2-r1
 ncurses-libs-6.2_p20210109-r0
 ncurses-terminfo-base-6.2_p20210109-r0
 nghttp2-libs-1.42.0-r1
-nodejs-14.16.1-r1
-npm-14.16.1-r1
+nodejs-14.17.4-r0
+npm-14.17.4-r0
 procps-3.3.16-r0
 readline-8.1.0-r0
 s6-ipcserver-2.10.0.0-r0
