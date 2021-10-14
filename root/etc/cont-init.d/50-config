@@ -2,57 +2,65 @@
 
 # make our folders
 mkdir -p \
-	/config/www/{backgrounds,icons,avatars,SupportedApps} \
-	/var/www/localhost/heimdall \
-	/config/log/heimdall
+    /config/www/{backgrounds,icons,avatars,SupportedApps} \
+    /app/www \
+    /config/log/heimdall
 
 # install heimdall if necessary
-[[ -f /heimdall/heimdall.tar.gz ]] && \
- echo "New container detected, installing Heimdall" && \
- tar xf \
- 	/heimdall/heimdall.tar.gz -C \
-	/var/www/localhost/heimdall --strip-components=1 && \
- echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
-	/etc/nginx/fastcgi_params && \
- rm -rf /heimdall && \
- cp /var/www/localhost/heimdall/storage/app/searchproviders.yaml /var/www/localhost/heimdall/storage/app/searchproviders.yaml.orig && \
- chown -R abc:abc /var/www/localhost/heimdall
-
+if [[ -f /heimdall/heimdall.tar.gz ]]; then
+    echo "New container detected, installing Heimdall"
+    tar xf \
+        /heimdall/heimdall.tar.gz -C \
+        /app/www --strip-components=1
+    echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
+        /etc/nginx/fastcgi_params
+    rm -rf /heimdall
+    cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig
+    chown -R abc:abc /app/www
+fi
 # create symlinks
 
 symlinks=( \
-/var/www/localhost/heimdall/storage/app/public/avatars \
-/var/www/localhost/heimdall/storage/app/public/backgrounds \
-/var/www/localhost/heimdall/storage/app/public/icons \
-/var/www/localhost/heimdall/app/SupportedApps \
-/var/www/localhost/heimdall/database/app.sqlite \
-/var/www/localhost/heimdall/.env )
+/app/www/storage/app/public/avatars \
+/app/www/storage/app/public/backgrounds \
+/app/www/storage/app/public/icons \
+/app/www/app/SupportedApps \
+/app/www/database/app.sqlite \
+/app/www/.env )
 
 for i in "${symlinks[@]}"
 do
-[[ -e "$i" && ! -L "$i" ]] && rm -rf "$i"
-[[ ! -L "$i" ]] && ln -s /config/www/"$(basename "$i")" "$i"
+    if [[ -e "$i" && ! -L "$i" ]]; then
+        rm -rf "$i"
+    fi
+    if [[ ! -L "$i" ]]; then
+        ln -s /config/www/"$(basename "$i")" "$i"
+    fi
 done
 
-[[ -e "/var/www/localhost/heimdall/storage/logs/laravel.log" && ! -L "/var/www/localhost/heimdall/storage/logs/laravel.log" ]] \
-	&& rm -rf "/var/www/localhost/heimdall/storage/logs/laravel.log"
-[[ ! -L "/var/www/localhost/heimdall/storage/logs/laravel.log" ]] && \
-	ln -s "/config/log/heimdall/laravel.log" "/var/www/localhost/heimdall/storage/logs/laravel.log"
+if [[ -e "/app/www/storage/logs/laravel.log" && ! -L "/app/www/storage/logs/laravel.log" ]]; then
+    rm -rf "/app/www/storage/logs/laravel.log"
+fi
+if [[ ! -L "/app/www/storage/logs/laravel.log" ]]; then
+    ln -s "/config/log/heimdall/laravel.log" "/app/www/storage/logs/laravel.log"
+fi
 
 # copy .env if not exists
-[[ ! -f /config/www/.env ]] && \
-  cp /var/www/localhost/heimdall/.env.example /config/www/.env && \
-  echo "Creating app key. This may take a while on slower systems" && \
-  php /var/www/localhost/heimdall/artisan key:generate
+if [[ ! -f /config/www/.env ]]; then
+    cp /app/www/.env.example /config/www/.env
+    echo "Creating app key. This may take a while on slower systems"
+    php /app/www/artisan key:generate
+fi
 # copy searchproviders if not exists and symlink
-[[ ! -f /config/www/searchproviders.yaml ]] && \
-  cp /var/www/localhost/heimdall/storage/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
-rm -rf /var/www/localhost/heimdall/storage/app/searchproviders.yaml
-ln -s /config/www/searchproviders.yaml /var/www/localhost/heimdall/storage/app/searchproviders.yaml
+if [[ ! -f /config/www/searchproviders.yaml ]]; then
+    cp /app/www/storage/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
+fi
+rm -rf /app/www/storage/app/searchproviders.yaml
+ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
 # permissions
 echo "Setting permissions"
 chown -R abc:abc \
-	/config
+    /config
