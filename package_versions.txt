@@ -1,5 +1,5 @@
 alpine-baselayout-3.2.0-r7
-alpine-keys-2.2-r0
+alpine-keys-2.4-r0
 apache2-utils-2.4.51-r0
 apk-tools-2.10.8-r0
 apr-1.7.0-r0
@@ -73,7 +73,7 @@ shadow-4.8.1-r0
 sqlite-libs-3.32.1-r1
 ssl_client-1.31.1-r20
 tar-1.32-r2
-tzdata-2021c-r0
+tzdata-2021d-r0
 xz-5.2.5-r0
 xz-libs-5.2.5-r0
 zlib-1.2.11-r3
