@@ -45,6 +45,10 @@ done
   php /var/www/localhost/heimdall/artisan key:generate
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
+if [ ! -z "$APP_URL" ]; then
+  APP_URL_ESCAPED=$(printf '%s\n' "$APP_URL" | sed -e 's/[\/&]/\\&/g')
+  sed -i "s/APP_URL=.*/APP_URL=$APP_URL_ESCAPED/g" /config/www/.env
+fi
 
 # permissions
 echo "Setting permissions"
