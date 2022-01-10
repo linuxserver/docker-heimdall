@@ -95,6 +95,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
+      # - APP_URL=https://host.domain:1234/heimdall/
     volumes:
       - </path/to/appdata/config>:/config
     ports:
@@ -129,6 +130,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London |
+| `-e APP_URL=https://host.domain:1234/heimdall/` | Optionally specify a fully-qualified APP_URL which will override the detected default  |
 | `-v /config` | Contains all relevant configuration files. |
 
 ## Environment variables from files (Docker secrets)
