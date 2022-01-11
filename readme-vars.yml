@@ -36,6 +36,7 @@ param_ports:
 param_usage_include_env: true
 param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London"}
+  - { env_var: "APP_URL", env_value: "https://<host>:<port>/<path>/", desc: "Optionally specify the full URL which will override the detected default"}
 
 # application setup block
 app_setup_block_enabled: true
@@ -49,6 +50,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "10.01.22:", desc: "Add APP_URL environment variable." }
   - { date: "10.02.21:", desc: "Revert to alpine 3.12 as php 7.4 broke laravel." }
   - { date: "10.02.21:", desc: "Rebasing to alpine 3.13." }
   - { date: "17.08.20:", desc: "Add php7-curl." }
