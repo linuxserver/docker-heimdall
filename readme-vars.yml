@@ -36,6 +36,7 @@ param_ports:
 param_usage_include_env: true
 param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London"}
+opt_param_env_vars:
   - { env_var: "APP_URL", env_value: "https://<host>:<port>/<path>/", desc: "Optionally specify the full URL which will override the detected default"}
 
 # application setup block
