@@ -52,6 +52,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "11.03.21:", desc: "Rebase to alpine 3.14." }
   - { date: "10.02.21:", desc: "Revert to alpine 3.12 as php 7.4 broke laravel." }
   - { date: "10.02.21:", desc: "Rebasing to alpine 3.13." }
   - { date: "01.06.20:", desc: "Rebasing to alpine 3.12." }
