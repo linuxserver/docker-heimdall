@@ -20,8 +20,7 @@ RUN \
 	php7-pdo_sqlite \
 	php7-pdo_mysql \
 	php7-tokenizer \
-	php7-zip \
-	tar && \
+	php7-zip && \
  echo "**** install heimdall ****" && \
  mkdir -p \
 	/heimdall && \
