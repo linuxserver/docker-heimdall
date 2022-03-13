@@ -15,6 +15,7 @@ mkdir -p \
  echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
 	/etc/nginx/fastcgi_params && \
  rm -rf /heimdall && \
+ cp /var/www/localhost/heimdall/app/searchproviders.yaml /var/www/localhost/heimdall/app/searchproviders.yaml.orig && \
  chown -R abc:abc /var/www/localhost/heimdall
 
 # create symlinks
@@ -43,6 +44,11 @@ done
   cp /var/www/localhost/heimdall/.env.example /config/www/.env && \
   echo "Creating app key. This may take a while on slower systems" && \
   php /var/www/localhost/heimdall/artisan key:generate
+# copy searchproviders if not exists and symlink
+[[ ! -f /config/www/searchproviders.yaml ]] && \
+  cp /var/www/localhost/heimdall/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
+rm -rf /var/www/localhost/heimdall/app/searchproviders.yaml
+ln -s /config/www/searchproviders.yaml /var/www/localhost/heimdall/app/searchproviders.yaml
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
