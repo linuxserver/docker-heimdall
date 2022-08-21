@@ -24,7 +24,7 @@ libedit-20210216.3.1-r0
 libintl-0.21-r0
 libldap-2.4.58-r0
 libmagic-5.40-r1
-libpq-13.7-r0
+libpq-13.8-r0
 libproc-3.3.17-r0
 libressl3.3-libcrypto-3.3.6-r0
 libressl3.3-libssl-3.3.6-r0
