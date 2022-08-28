@@ -32,7 +32,7 @@ libretls-3.3.3p1-r3
 libsasl-2.1.28-r0
 libssl1.1-1.1.1q-r0
 libuuid-2.37.4-r0
-libxml2-2.9.14-r0
+libxml2-2.9.14-r1
 libzip-1.7.3-r2
 linux-pam-1.5.1-r1
 logrotate-3.18.1-r3
@@ -76,7 +76,7 @@ shadow-4.8.1-r0
 skalibs-2.10.0.3-r0
 sqlite-libs-3.35.5-r0
 ssl_client-1.33.1-r8
-tzdata-2022a-r0
+tzdata-2022c-r0
 utmps-0.1.0.2-r0
 xz-5.2.5-r1
 xz-libs-5.2.5-r1
