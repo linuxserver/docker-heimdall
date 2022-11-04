@@ -22,7 +22,7 @@ RUN \
  mkdir -p \
 	/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \
- 	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/commits/master" \
+ 	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/commits/2.x" \
 	| awk '/sha/{print $4;exit}' FS='[""]'); \
  fi && \
  curl -o \
