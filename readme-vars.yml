@@ -21,7 +21,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Stable Heimdall releases." }
-  - { tag: "development", desc: "Latest commit from the github master branch." }
+  - { tag: "development", desc: "Latest commit from the github 2.x branch." }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -49,6 +49,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "04.11.22:", desc: "Build commits to upstream branch 2.x for the `development` tag." }
   - { date: "13.03.21:", desc: "Make searchproviders.yaml user configurable." }
   - { date: "11.03.21:", desc: "Rebase to alpine 3.14." }
   - { date: "10.02.21:", desc: "Revert to alpine 3.12 as php 7.4 broke laravel." }
