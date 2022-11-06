@@ -60,6 +60,15 @@ The architectures supported by this image are:
 | arm64 | ✅ | arm64v8-\<version tag\> |
 | armhf| ✅ | arm32v7-\<version tag\> |
 
+## Version Tags
+
+This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
+
+| Tag | Available | Description |
+| :----: | :----: |--- |
+| latest | ✅ | Stable Heimdall releases. |
+| development | ✅ | Latest commit from the github 2.x branch. |
+
 ## Application Setup
 
 Access the web gui at http://SERVERIP:PORT
@@ -87,7 +96,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - </path/to/appdata/config>:/config
+      - /path/to/appdata/config:/config
     ports:
       - 80:80
       - 443:443
@@ -104,15 +113,10 @@ docker run -d \
   -e TZ=Europe/London \
   -p 80:80 \
   -p 443:443 \
-  -v </path/to/appdata/config>:/config \
+  -v /path/to/appdata/config:/config \
   --restart unless-stopped \
   lscr.io/linuxserver/heimdall:development
 ```
-
-Using tags, you can switch between the stable releases of Heimdall and the master branch. No tag is required for the latest stable release.
-Add the development tag,  if required,  to the linuxserver/heimdall line of the run/create command in the following format, linuxserver/heimdall:development
-The development tag will be the latest commit in the master branch of Heimdall.
-HOWEVER , USE THE DEVELOPMENT TAG AT YOUR OWN PERIL !!!!!!!!!
 
 ## Parameters
 
@@ -236,6 +240,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **04.11.22:** - Build commits to upstream branch 2.x.
 * **13.03.21:** - Make searchproviders.yaml user configurable.
 * **11.03.21:** - Rebase to alpine 3.14.
 * **10.02.21:** - Revert to alpine 3.12 as php 7.4 broke laravel.

@@ -17,12 +17,18 @@ available_architectures:
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
   - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
+# development version
+development_versions: true
+development_versions_items:
+  - { tag: "latest", desc: "Stable Heimdall releases." }
+  - { tag: "development", desc: "Latest commit from the github 2.x branch." }
+
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "</path/to/appdata/config>", desc: "Contains all relevant configuration files." }
+  - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Contains all relevant configuration files." }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "80", internal_port: "80", port_desc: "http gui" }
@@ -32,7 +38,7 @@ param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London"}
 
 # optional parameters
-optional_block_1: true
+optional_block_1: false
 optional_block_1_items:
   - |
     Using tags, you can switch between the stable releases of Heimdall and the master branch. No tag is required for the latest stable release.
@@ -52,6 +58,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "04.11.22:", desc: "Build commits to upstream branch 2.x." }
   - { date: "13.03.21:", desc: "Make searchproviders.yaml user configurable." }
   - { date: "11.03.21:", desc: "Rebase to alpine 3.14." }
   - { date: "10.02.21:", desc: "Revert to alpine 3.12 as php 7.4 broke laravel." }
