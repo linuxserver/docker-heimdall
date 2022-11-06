@@ -96,7 +96,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - </path/to/appdata/config>:/config
+      - /path/to/appdata/config:/config
     ports:
       - 80:80
       - 443:443
@@ -113,7 +113,7 @@ docker run -d \
   -e TZ=Europe/London \
   -p 80:80 \
   -p 443:443 \
-  -v </path/to/appdata/config>:/config \
+  -v /path/to/appdata/config:/config \
   --restart unless-stopped \
   lscr.io/linuxserver/heimdall:latest
 ```
