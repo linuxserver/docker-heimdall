@@ -67,7 +67,7 @@ This image provides various versions that are available via tags. Please read th
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Stable Heimdall releases. |
-| development | ✅ | Latest commit from the github master branch. |
+| development | ✅ | Latest commit from the github 2.x branch. |
 
 ## Application Setup
 
@@ -240,6 +240,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **04.11.22:** - Build commits to upstream branch 2.x for the `development` tag.
 * **13.03.21:** - Make searchproviders.yaml user configurable.
 * **11.03.21:** - Rebase to alpine 3.14.
 * **10.02.21:** - Revert to alpine 3.12 as php 7.4 broke laravel.
