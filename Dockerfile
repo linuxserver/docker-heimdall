@@ -15,7 +15,9 @@ RUN \
  apk add --no-cache \
 	curl \
 	php7-ctype \
+	php7-pdo_pgsql \
 	php7-pdo_sqlite \
+	php7-pdo_mysql \
 	php7-tokenizer \
 	php7-zip && \
  echo "**** install heimdall ****" && \
