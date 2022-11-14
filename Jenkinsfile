@@ -17,7 +17,7 @@ pipeline {
     GITLAB_TOKEN=credentials('b6f0f1dd-6952-4cf6-95d1-9c06380283f0')
     GITLAB_NAMESPACE=credentials('gitlab-namespace-id')
     SCARF_TOKEN=credentials('scarf_api_key')
-    EXT_GIT_BRANCH = 'master'
+    EXT_GIT_BRANCH = '2.x'
     EXT_USER = 'linuxserver'
     EXT_REPO = 'Heimdall'
     CONTAINER_NAME = 'heimdall'
@@ -720,7 +720,7 @@ pipeline {
                 -e DO_REGION="ams3" \
                 -e DO_BUCKET="lsio-ci" \
                 -t ghcr.io/linuxserver/ci:latest \
-                python /ci/ci.py'''
+                python3 test_build.py'''
         }
       }
     }

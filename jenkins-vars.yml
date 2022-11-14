@@ -7,7 +7,7 @@ release_type: stable
 release_tag: latest
 ls_branch: master
 repo_vars:
-  - EXT_GIT_BRANCH = 'master'
+  - EXT_GIT_BRANCH = '2.x'
   - EXT_USER = 'linuxserver'
   - EXT_REPO = 'Heimdall'
   - CONTAINER_NAME = 'heimdall'
