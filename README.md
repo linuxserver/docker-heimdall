@@ -76,7 +76,7 @@ Access the web gui at http://SERVERIP:PORT
 
 ### Adding password protection
 
-This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. New installs will automatically pick it up and implement password protected access. Existing users updating their image can delete their site config at `/config/nginx/site-confs/default` and restart the container after updating the image. A new site config with htpasswd support will be created in its place.
+This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. Uncomment the `basic auth` lines in `/config/nginx/site-confs/default.conf` and restart the container.
 
 ## Usage
 
@@ -240,6 +240,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **14.11.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **04.11.22:** - Build commits to upstream branch 2.x.
 * **13.03.21:** - Make searchproviders.yaml user configurable.
 * **11.03.21:** - Rebase to alpine 3.14.
@@ -258,5 +259,5 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 * **07.10.18:** - Symlink `.env` rather than copy. It now resides under `/config/www`
 * **30.09.18:** - Multi-arch image. Move `.env` to `/config`.
 * **05.09.18:** - Rebase to alpine linux 3.8.
-* **06.03.18:** - Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default and restart the container, a new default site config with htpasswd support will be created in its place
+* **06.03.18:** - Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default.conf and restart the container, a new default site config with htpasswd support will be created in its place
 * **12.02.18:** - Initial Release.
