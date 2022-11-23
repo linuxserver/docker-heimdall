@@ -45,13 +45,13 @@ app_setup_block: |
 
   ### Adding password protection
   
-  This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. New installs will automatically pick it up and implement password protected access. Existing users updating their image can delete their site config at `/config/nginx/site-confs/default` and restart the container after updating the image. A new site config with htpasswd support will be created in its place.
+  This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. Uncomment the `basic auth` lines in `/config/nginx/site-confs/default.conf` and restart the container.
 
 # changelog
 changelogs:
+  - { date: "14.11.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))." }
   - { date: "04.11.22:", desc: "Build commits to upstream branch 2.x for the `development` tag." }
   - { date: "13.03.21:", desc: "Make searchproviders.yaml user configurable." }
-  - { date: "11.03.21:", desc: "Rebase to alpine 3.14." }
   - { date: "10.02.21:", desc: "Revert to alpine 3.12 as php 7.4 broke laravel." }
   - { date: "10.02.21:", desc: "Rebasing to alpine 3.13." }
   - { date: "17.08.20:", desc: "Add php7-curl." }
@@ -74,5 +74,5 @@ changelogs:
   - { date: "07.10.18:", desc: "Symlink `.env` rather than copy. It now resides under `/config/www`" }
   - { date: "30.09.18:", desc: "Multi-arch image. Move `.env` to `/config`." }
   - { date: "05.09.18:", desc: "Rebase to alpine linux 3.8." }
-  - { date: "06.03.18:", desc: "Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default and restart the container, a new default site config with htpasswd support will be created in its place" }
+  - { date: "06.03.18:", desc: "Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default.conf and restart the container, a new default site config with htpasswd support will be created in its place" }
   - { date: "12.02.18:", desc: "Initial Release." }
