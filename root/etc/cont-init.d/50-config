@@ -1,8 +1,9 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 # make our folders
 mkdir -p \
-    /config/www/{backgrounds,icons,avatars,SupportedApps} \
+    /config/www/{avatars,backgrounds,icons,logs,SupportedApps} \
     /app/www \
     /config/log/heimdall
 
@@ -20,30 +21,24 @@ if [[ -f /heimdall/heimdall.tar.gz ]]; then
 fi
 # create symlinks
 
-symlinks=( \
-/app/www/storage/app/public/avatars \
-/app/www/storage/app/public/backgrounds \
-/app/www/storage/app/public/icons \
-/app/www/app/SupportedApps \
-/app/www/database/app.sqlite \
-/app/www/.env )
+symlinks=(
+    /app/www/storage/app/public/avatars
+    /app/www/storage/app/public/backgrounds
+    /app/www/storage/app/public/icons
+    /app/www/storage/logs
+    /app/www/app/SupportedApps
+    /app/www/database/app.sqlite
+    /app/www/.env
+)
 
-for i in "${symlinks[@]}"
-do
-    if [[ -e "$i" && ! -L "$i" ]]; then
-        rm -rf "$i"
+for i in "${symlinks[@]}"; do
+    if [[ -e "${i}" && ! -L "${i}" ]]; then
+        rm -rf "${i}"
     fi
-    if [[ ! -L "$i" ]]; then
-        ln -s /config/www/"$(basename "$i")" "$i"
+    if [[ ! -L "${i}" ]]; then
+        ln -s /config/www/"$(basename "${i}")" "${i}"
     fi
 done
-
-if [[ -e "/app/www/storage/logs/laravel.log" && ! -L "/app/www/storage/logs/laravel.log" ]]; then
-    rm -rf "/app/www/storage/logs/laravel.log"
-fi
-if [[ ! -L "/app/www/storage/logs/laravel.log" ]]; then
-    ln -s "/config/log/heimdall/laravel.log" "/app/www/storage/logs/laravel.log"
-fi
 
 # copy .env if not exists
 if [[ ! -f /config/www/.env ]]; then
