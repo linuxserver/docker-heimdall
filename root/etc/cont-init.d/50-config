@@ -37,19 +37,19 @@ for i in "${symlinks[@]}"; do
     fi
 done
 
-# tidy up install files & set permissions
-if [[ -f /heimdall/heimdall.tar.gz ]]; then
-    rm -rf /heimdall
-    chown -R abc:abc /app/www
-    chown -R abc:abc /config
-fi
-
 # copy searchproviders if not exists and symlink
 if [[ ! -f /config/www/searchproviders.yaml ]]; then
     cp /app/www/storage/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
 fi
 rm -rf /app/www/storage/app/searchproviders.yaml
 ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
+
+# tidy up install files & set permissions
+if [[ -f /heimdall/heimdall.tar.gz ]]; then
+    rm -rf /heimdall
+    chown -R abc:abc /app/www
+    chown -R abc:abc /config
+fi
 
 # copy .env if not exists
 if [[ ! -f /config/www/.env ]]; then
