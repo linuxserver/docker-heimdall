@@ -19,8 +19,8 @@ if [[ -f /heimdall/heimdall.tar.gz ]]; then
     cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig
     chown -R abc:abc /app/www
 fi
-# create symlinks
 
+# create symlinks
 symlinks=(
     /app/www/storage/app/public/avatars
     /app/www/storage/app/public/backgrounds
@@ -30,7 +30,6 @@ symlinks=(
     /app/www/database/app.sqlite
     /app/www/.env
 )
-
 for i in "${symlinks[@]}"; do
     if [[ -e "${i}" && ! -L "${i}" ]]; then
         rm -rf "${i}"
@@ -46,12 +45,14 @@ if [[ ! -f /config/www/.env ]]; then
     echo "Creating app key. This may take a while on slower systems"
     php /app/www/artisan key:generate
 fi
+
 # copy searchproviders if not exists and symlink
 if [[ ! -f /config/www/searchproviders.yaml ]]; then
     cp /app/www/storage/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
 fi
 rm -rf /app/www/storage/app/searchproviders.yaml
 ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
+
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
 
