@@ -15,9 +15,7 @@ if [[ -f /heimdall/heimdall.tar.gz ]]; then
         /app/www --strip-components=1
     echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
         /etc/nginx/fastcgi_params
-    rm -rf /heimdall
     cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig
-    chown -R abc:abc /app/www
 fi
 
 # create symlinks
@@ -39,11 +37,11 @@ for i in "${symlinks[@]}"; do
     fi
 done
 
-# copy .env if not exists
-if [[ ! -f /config/www/.env ]]; then
-    cp /app/www/.env.example /config/www/.env
-    echo "Creating app key. This may take a while on slower systems"
-    php /app/www/artisan key:generate
+# tidy up install files & set permissions
+if [[ -f /heimdall/heimdall.tar.gz ]]; then
+    rm -rf /heimdall
+    chown -R abc:abc /app/www
+    chown -R abc:abc /config
 fi
 
 # copy searchproviders if not exists and symlink
@@ -53,10 +51,12 @@ fi
 rm -rf /app/www/storage/app/searchproviders.yaml
 ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
 
+# copy .env if not exists
+if [[ ! -f /config/www/.env ]]; then
+    install -g abc -o abc /app/www/.env.example /config/www/.env
+    echo "Creating app key. This may take a while on slower systems"
+    s6-setuidgid abc php /app/www/artisan key:generate
+fi
+
 # set queue driver to database
 sed -i 's/QUEUE_DRIVER=sync/QUEUE_DRIVER=database/' /config/www/.env
-
-# permissions
-echo "Setting permissions"
-chown -R abc:abc \
-    /config
