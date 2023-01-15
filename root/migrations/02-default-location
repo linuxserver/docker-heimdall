@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 DEFAULT_CONF="/config/nginx/site-confs/default.conf"
 OLD_ROOT="root /var/www/localhost/heimdall/public;"
