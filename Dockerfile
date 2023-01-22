@@ -1,4 +1,6 @@
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.15
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.17
 
 # set version label
 ARG BUILD_DATE
@@ -13,16 +15,14 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache --upgrade \
-    curl \
-    php8-ctype \
-    php8-curl \
-    php8-intl \
-    php8-pdo_pgsql \
-    php8-pdo_sqlite \
-    php8-pdo_mysql \
-    php8-tokenizer \
-    php8-zip \
-    tar && \
+    php81-ctype \
+    php81-curl \
+    php81-intl \
+    php81-pdo_pgsql \
+    php81-pdo_sqlite \
+    php81-pdo_mysql \
+    php81-tokenizer \
+    php81-zip && \
   echo "**** install heimdall ****" && \
   mkdir -p \
     /heimdall && \
