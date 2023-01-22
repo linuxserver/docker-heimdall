@@ -4,11 +4,12 @@
 project_name: heimdall
 project_url: "https://heimdall.site"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png"
-project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is a way to organise all those links to your most used web sites and web applications in a simple way.
+project_blurb: |
+  [{{ project_name|capitalize }}]({{ project_url }}) is a way to organise all those links to your most used web sites and web applications in a simple way.
 
-Simplicity is the key to Heimdall.
+  Simplicity is the key to Heimdall.
 
-Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo."
+  Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 
 # supported architectures
@@ -49,6 +50,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "20.01.23:", desc: "Rebase to alpine 3.17 with php8.1." }
   - { date: "14.11.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))." }
   - { date: "04.11.22:", desc: "Build commits to upstream branch 2.x for the `development` tag." }
   - { date: "13.03.21:", desc: "Make searchproviders.yaml user configurable." }

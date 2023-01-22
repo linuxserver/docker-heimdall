@@ -41,7 +41,9 @@ Find us at:
 [![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fheimdall%2Flatest%2Fci-status.yml)](https://ci-tests.linuxserver.io/linuxserver/heimdall/latest/index.html)
 
 [Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way.
+
 Simplicity is the key to Heimdall.
+
 Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.
 
 [![heimdall](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png)](https://heimdall.site)
@@ -240,6 +242,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.01.23:** - Rebase to alpine 3.17 with php8.1.
 * **14.11.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **04.11.22:** - Build commits to upstream branch 2.x for the `development` tag.
 * **13.03.21:** - Make searchproviders.yaml user configurable.

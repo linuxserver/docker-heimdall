@@ -47,8 +47,7 @@ ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
 # tidy up install files & set permissions
 if [[ -f /heimdall/heimdall.tar.gz ]]; then
     rm -rf /heimdall
-    chown -R abc:abc /app/www
-    chown -R abc:abc /config
+    lsiown -R abc:abc /config
 fi
 
 # copy .env if not exists
