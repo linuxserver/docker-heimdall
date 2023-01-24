@@ -43,9 +43,7 @@ RUN \
   tar xf \
     /tmp/heimdall.tar.gz -C \
     /app/www --strip-components=1 && \
-  cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig && \
-  chown -R abc:abc \
-    /app/www && \
+  mv /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
