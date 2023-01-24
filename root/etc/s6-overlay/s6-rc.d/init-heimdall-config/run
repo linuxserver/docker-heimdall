@@ -4,19 +4,7 @@
 # make our folders
 mkdir -p \
     /config/www/{avatars,backgrounds,icons,logs,SupportedApps} \
-    /app/www \
     /config/log/heimdall
-
-# install heimdall if necessary
-if [[ -f /heimdall/heimdall.tar.gz ]]; then
-    echo "New container detected, installing Heimdall"
-    tar xf \
-        /heimdall/heimdall.tar.gz -C \
-        /app/www --strip-components=1
-    echo -e '\n# Heimdall user authorization\nfastcgi_param  PHP_AUTH_USER $remote_user;\nfastcgi_param  PHP_AUTH_PW $http_authorization;' >> \
-        /etc/nginx/fastcgi_params
-    cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig
-fi
 
 # create symlinks
 symlinks=(
@@ -35,20 +23,16 @@ for i in "${symlinks[@]}"; do
     if [[ ! -L "${i}" ]]; then
         ln -s /config/www/"$(basename "${i}")" "${i}"
     fi
+    lsiown -R abc:abc /config/www/"$(basename "${i}")"
 done
 
 # copy searchproviders if not exists and symlink
 if [[ ! -f /config/www/searchproviders.yaml ]]; then
     cp /app/www/storage/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
+    lsiown -R abc:abc /config/www/searchproviders.yaml
 fi
 rm -rf /app/www/storage/app/searchproviders.yaml
 ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
-
-# tidy up install files & set permissions
-if [[ -f /heimdall/heimdall.tar.gz ]]; then
-    rm -rf /heimdall
-    lsiown -R abc:abc /config
-fi
 
 # copy .env if not exists
 if [[ ! -f /config/www/.env ]]; then
