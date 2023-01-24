@@ -23,6 +23,11 @@ RUN \
     php81-pdo_mysql \
     php81-tokenizer \
     php81-zip && \
+  echo "**** configure nginx ****" && \
+  echo 'fastcgi_param  PHP_AUTH_USER      $remote_user; # Heimdall user authorization' >> \
+    /etc/nginx/fastcgi_params && \
+  echo 'fastcgi_param  PHP_AUTH_PW        $http_authorization; # Heimdall user authorization' >> \
+    /etc/nginx/fastcgi_params && \
   echo "**** install heimdall ****" && \
   mkdir -p \
     /heimdall && \
@@ -31,8 +36,16 @@ RUN \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   curl -o \
-    /heimdall/heimdall.tar.gz -L \
+    /tmp/heimdall.tar.gz -L \
     "https://github.com/linuxserver/Heimdall/archive/${HEIMDALL_RELEASE}.tar.gz" && \
+  mkdir -p \
+    /app/www && \
+  tar xf \
+    /tmp/heimdall.tar.gz -C \
+    /app/www --strip-components=1 && \
+  cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig && \
+  chown -R abc:abc \
+    /app/www && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
