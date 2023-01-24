@@ -19,11 +19,13 @@ symlinks=(
 for i in "${symlinks[@]}"; do
     if [[ -e "${i}" && ! -L "${i}" ]]; then
         rm -rf "${i}"
+        if [[ -d /config/www/"$(basename "${i}")" ]]; then
+            lsiown -R abc:abc /config/www/"$(basename "${i}")"
+        fi
     fi
     if [[ ! -L "${i}" ]]; then
         ln -s /config/www/"$(basename "${i}")" "${i}"
     fi
-    lsiown -R abc:abc /config/www/"$(basename "${i}")"
 done
 
 # copy searchproviders if not exists and symlink
