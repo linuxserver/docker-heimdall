@@ -41,8 +41,8 @@ rm -rf /app/www/storage/app/searchproviders.yaml
 ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
 
 # tidy up install files & set permissions
-if [[ -d /app/set-perms ]]; then
-    rm /app/set-perms
+if [[ -f /app/set-perms ]]; then
+    rm -rf /app/set-perms
     lsiown -R abc:abc \
         /app/www \
         /config
