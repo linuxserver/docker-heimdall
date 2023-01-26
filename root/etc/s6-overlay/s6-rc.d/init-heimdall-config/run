@@ -3,9 +3,16 @@
 
 # make our folders
 mkdir -p \
-    /app/www/bootstrap/cache \
     /config/www/{avatars,backgrounds,icons,logs,SupportedApps} \
     /config/log/heimdall
+
+# install heimdall if necessary
+if [[ -d /app/www-tmp ]]; then
+    echo "New container detected, installing Heimdall"
+    mv /app/www-tmp /app/www
+    cp /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig
+    touch /app/set-perms
+fi
 
 # create symlinks
 symlinks=(
@@ -24,26 +31,22 @@ for i in "${symlinks[@]}"; do
     if [[ ! -L "${i}" ]]; then
         ln -s /config/www/"$(basename "${i}")" "${i}"
     fi
-    if [[ -d /config/www/"$(basename "${i}")" ]]; then
-        lsiown abc:abc /config/www/"$(basename "${i}")"
-    fi
 done
-
-# set permissions on new container
-if [[ ! -f /config/www/searchproviders.yaml ]]; then
-    echo "New container detected, setting permissions"
-    lsiown -R abc:abc \
-        /app \
-        /config
-fi
 
 # copy searchproviders if not exists and symlink
 if [[ ! -f /config/www/searchproviders.yaml ]]; then
     cp /app/www/storage/app/searchproviders.yaml.orig /config/www/searchproviders.yaml
-    lsiown abc:abc /config/www/searchproviders.yaml
 fi
 rm -rf /app/www/storage/app/searchproviders.yaml
 ln -s /config/www/searchproviders.yaml /app/www/storage/app/searchproviders.yaml
+
+# tidy up install files & set permissions
+if [[ -d /app/set-perms ]]; then
+    rm /app/set-perms
+    lsiown -R abc:abc \
+        /app/www \
+        /config
+fi
 
 # copy .env if not exists
 if [[ ! -f /config/www/.env ]]; then
