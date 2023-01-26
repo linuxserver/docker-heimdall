@@ -39,11 +39,10 @@ RUN \
     /tmp/heimdall.tar.gz -L \
     "https://github.com/linuxserver/Heimdall/archive/${HEIMDALL_RELEASE}.tar.gz" && \
   mkdir -p \
-    /app/www && \
+    /app/www-tmp && \
   tar xf \
     /tmp/heimdall.tar.gz -C \
-    /app/www --strip-components=1 && \
-  mv /app/www/storage/app/searchproviders.yaml /app/www/storage/app/searchproviders.yaml.orig && \
+    /app/www-tmp --strip-components=1 && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
