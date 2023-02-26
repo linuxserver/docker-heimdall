@@ -14,7 +14,7 @@ busybox-binsh-1.35.0-r29
 ca-certificates-20220614-r4
 ca-certificates-bundle-20220614-r4
 coreutils-9.1-r0
-curl-7.87.0-r1
+curl-7.87.0-r2
 git-2.38.4-r0
 icu-data-en-72.1-r1
 icu-libs-72.1-r1
