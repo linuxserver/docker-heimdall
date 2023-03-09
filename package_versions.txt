@@ -3,7 +3,7 @@ alpine-baselayout                   3.4.0-r0               apk
 alpine-baselayout-data              3.4.0-r0               apk           
 alpine-keys                         2.4-r1                 apk           
 alpine-release                      3.17.2-r0              apk           
-apache2-utils                       2.4.55-r0              apk           
+apache2-utils                       2.4.56-r0              apk           
 apk-tools                           2.12.10-r1             apk           
 apr                                 1.7.2-r0               apk           
 apr-util                            1.6.3-r0               apk           
@@ -38,7 +38,7 @@ facade/ignition-contracts           1.0.2                  php-composer
 fideloper/proxy                     4.4.2                  php-composer  
 filp/whoops                         2.14.6                 php-composer  
 fzaninotto/faker                    v1.9.2                 php-composer  
-git                                 2.38.4-r0              apk           
+git                                 2.38.4-r1              apk           
 graham-campbell/bounded-cache       v1.3.0                 php-composer  
 graham-campbell/github              v10.6.0                php-composer  
 graham-campbell/manager             v4.7.0                 php-composer  
