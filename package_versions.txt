@@ -2,7 +2,7 @@ NAME                                VERSION                TYPE
 alpine-baselayout                   3.4.0-r0               apk           
 alpine-baselayout-data              3.4.0-r0               apk           
 alpine-keys                         2.4-r1                 apk           
-alpine-release                      3.17.2-r0              apk           
+alpine-release                      3.17.3-r0              apk           
 apache2-utils                       2.4.56-r0              apk           
 apk-tools                           2.12.10-r1             apk           
 apr                                 1.7.2-r0               apk           
@@ -216,7 +216,7 @@ symfony/var-exporter                v5.4.10                php-composer
 symfony/yaml                        v5.4.14                php-composer  
 theseer/tokenizer                   1.2.1                  php-composer  
 tijsverkoyen/css-to-inline-styles   2.2.5                  php-composer  
-tzdata                              2023b-r1               apk           
+tzdata                              2023c-r0               apk           
 utmps-libs                          0.1.2.0-r1             apk           
 vlucas/phpdotenv                    v5.5.0                 php-composer  
 voku/portable-ascii                 1.6.1                  php-composer  
@@ -224,4 +224,4 @@ webmozart/assert                    1.11.0                 php-composer
 xz                                  5.2.9-r0               apk           
 xz-libs                             5.2.9-r0               apk           
 zlib                                1.2.13-r0              apk           
-zstd-libs                           1.5.2-r9               apk           
+zstd-libs                           1.5.5-r0               apk           
