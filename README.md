@@ -242,6 +242,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **13.04.23:** - Move ssl.conf include to default.conf.
 * **20.01.23:** - Rebase to alpine 3.17 with php8.1.
 * **14.11.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **04.11.22:** - Build commits to upstream branch 2.x for the `development` tag.
