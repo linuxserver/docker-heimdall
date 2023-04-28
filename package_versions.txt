@@ -38,7 +38,7 @@ facade/ignition-contracts           1.0.2                  php-composer
 fideloper/proxy                     4.4.2                  php-composer  
 filp/whoops                         2.14.6                 php-composer  
 fzaninotto/faker                    v1.9.2                 php-composer  
-git                                 2.38.4-r1              apk           
+git                                 2.38.5-r0              apk           
 graham-campbell/bounded-cache       v1.3.0                 php-composer  
 graham-campbell/github              v10.6.0                php-composer  
 graham-campbell/manager             v4.7.0                 php-composer  
