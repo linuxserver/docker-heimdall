@@ -17,6 +17,10 @@ available_architectures:
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
   - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
+project_deprecation_status: true
+project_deprecation_message: |
+  We recommend switching to the latest tag
+
 # development version
 development_versions: true
 development_versions_items:
