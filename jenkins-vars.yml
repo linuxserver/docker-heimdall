@@ -6,6 +6,7 @@ external_type: github_commit
 release_type: prerelease
 release_tag: development
 ls_branch: development
+build_armhf: false
 repo_vars:
   - EXT_GIT_BRANCH = '2.x'
   - EXT_USER = 'linuxserver'
