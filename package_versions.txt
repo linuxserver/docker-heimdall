@@ -3,7 +3,7 @@ Readsfromstdinwithoutleakinginfototheterminalandoutputsbacktostdout  1,         
 alpine-baselayout                                                    3.4.3-r1                apk           
 alpine-baselayout-data                                               3.4.3-r1                apk           
 alpine-keys                                                          2.4-r1                  apk           
-alpine-release                                                       3.18.4-r0               apk           
+alpine-release                                                       3.18.5-r0               apk           
 apache2-utils                                                        2.4.58-r0               apk           
 apk-tools                                                            2.14.0-r2               apk           
 apr                                                                  1.7.4-r0                apk           
