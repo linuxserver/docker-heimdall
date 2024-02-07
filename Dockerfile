@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.18
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.19
 
 # set version label
 ARG BUILD_DATE
@@ -15,11 +15,11 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
-    php82-intl \
-    php82-pdo_pgsql \
-    php82-pdo_sqlite \
-    php82-pdo_mysql \
-    php82-tokenizer && \
+    php83-intl \
+    php83-pdo_pgsql \
+    php83-pdo_sqlite \
+    php83-pdo_mysql \
+    php83-tokenizer && \
   echo "**** configure nginx ****" && \
   echo 'fastcgi_param  PHP_AUTH_USER      $remote_user; # Heimdall user authorization' >> \
     /etc/nginx/fastcgi_params && \
