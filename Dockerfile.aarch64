@@ -15,6 +15,7 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
+    php83-dom \
     php83-intl \
     php83-pdo_pgsql \
     php83-pdo_sqlite \
