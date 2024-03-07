@@ -20,12 +20,16 @@ RUN \
     php83-pdo_pgsql \
     php83-pdo_sqlite \
     php83-pdo_mysql \
+    php83-opcache \
     php83-tokenizer && \
   echo "**** configure nginx ****" && \
   echo 'fastcgi_param  PHP_AUTH_USER      $remote_user; # Heimdall user authorization' >> \
     /etc/nginx/fastcgi_params && \
   echo 'fastcgi_param  PHP_AUTH_PW        $http_authorization; # Heimdall user authorization' >> \
     /etc/nginx/fastcgi_params && \
+  echo "**** configure php opcache ****" && \
+  echo 'opcache.validate_timestamps=0' >> \
+    /etc/php83/conf.d/00_opcache.ini && \
   echo "**** install heimdall ****" && \
   mkdir -p \
     /heimdall && \
