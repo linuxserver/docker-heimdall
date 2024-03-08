@@ -138,6 +138,7 @@ php83-iconv                         8.3.3-r0               apk
 php83-intl                          8.3.3-r0               apk             
 php83-mbstring                      8.3.3-r0               apk             
 php83-mysqlnd                       8.3.3-r0               apk             
+php83-opcache                       8.3.3-r0               apk             
 php83-openssl                       8.3.3-r0               apk             
 php83-pdo                           8.3.3-r0               apk             
 php83-pdo_mysql                     8.3.3-r0               apk             
