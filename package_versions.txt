@@ -5,7 +5,7 @@ alpine-baselayout-data              3.4.3-r2               apk
 alpine-keys                         2.4-r1                 apk             
 alpine-release                      3.19.1-r0              apk             
 apache2-utils                       2.4.59-r0              apk             
-apk-tools                           2.14.3-r1              apk             
+apk-tools                           2.14.4-r0              apk             
 apr                                 1.7.4-r0               apk             
 apr-util                            1.6.3-r1               apk             
 argon2-libs                         20190702-r5            apk             
@@ -43,6 +43,7 @@ dragonmantank/cron-expression       v3.3.3                 php-composer
 egulias/email-validator             4.0.2                  php-composer    
 fakerphp/faker                      v1.23.1                php-composer    
 filp/whoops                         2.15.4                 php-composer    
+findutils                           4.9.0-r5               apk             
 fruitcake/php-cors                  v1.3.0                 php-composer    
 git                                 2.43.0-r0              apk             
 graham-campbell/bounded-cache       v2.2.0                 php-composer    
