@@ -16,8 +16,8 @@ barryvdh/reflection-docblock        v2.1.1                 php-composer
 bash                                5.2.21-r0              apk             
 brick/math                          0.11.0                 php-composer    
 brotli-libs                         1.1.0-r1               apk             
-busybox                             1.36.1-r15             apk             
-busybox-binsh                       1.36.1-r15             apk             
+busybox                             1.36.1-r18             apk             
+busybox-binsh                       1.36.1-r18             apk             
 c-ares                              1.27.0-r0              apk             
 ca-certificates                     20240226-r0            apk             
 ca-certificates-bundle              20240226-r0            apk             
@@ -78,7 +78,7 @@ libattr                             2.5.1-r5               apk
 libbsd                              0.11.7-r3              apk             
 libbz2                              1.0.8-r6               apk             
 libc-utils                          0.7.2-r5               apk             
-libcrypto3                          3.1.4-r6               apk             
+libcrypto3                          3.1.5-r0               apk             
 libcurl                             8.5.0-r0               apk             
 libedit                             20230828.3.1-r3        apk             
 libexpat                            2.6.2-r0               apk             
@@ -89,11 +89,11 @@ libmd                               1.1.0-r0               apk
 libncursesw                         6.4_p20231125-r0       apk             
 libpq                               16.3-r0                apk             
 libproc2                            4.0.4-r0               apk             
-libssl3                             3.1.4-r6               apk             
+libssl3                             3.1.5-r0               apk             
 libstdc++                           13.2.1_git20231014-r0  apk             
 libunistring                        1.1-r2                 apk             
 libuuid                             2.39.3-r0              apk             
-libxml2                             2.11.7-r0              apk             
+libxml2                             2.11.8-r0              apk             
 libzip                              1.10.1-r0              apk             
 linux-pam                           1.5.3-r7               apk             
 logrotate                           3.21.0-r1              apk             
@@ -115,7 +115,7 @@ nikic/php-parser                    v5.0.0                 php-composer
 nunomaduro/collision                v6.4.0                 php-composer    
 nunomaduro/termwind                 v1.15.1                php-composer    
 oniguruma                           6.9.9-r0               apk             
-openssl                             3.1.4-r6               apk             
+openssl                             3.1.5-r0               apk             
 pcre                                8.45-r3                apk             
 pcre2                               10.42-r2               apk             
 phar-io/manifest                    2.0.3                  php-composer    
@@ -203,7 +203,7 @@ spatie/ignition                     1.12.0                 php-composer
 spatie/laravel-ignition             2.4.2                  php-composer    
 sqlite-libs                         3.44.2-r0              apk             
 squizlabs/php_codesniffer           3.9.0                  php-composer    
-ssl_client                          1.36.1-r15             apk             
+ssl_client                          1.36.1-r18             apk             
 symfony/cache                       v6.4.3                 php-composer    
 symfony/cache-contracts             v3.4.0                 php-composer    
 symfony/console                     v6.4.3                 php-composer    
