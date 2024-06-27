@@ -6,7 +6,6 @@ external_type: github_commit
 release_type: prerelease
 release_tag: development
 ls_branch: development
-build_armhf: false
 repo_vars:
   - EXT_GIT_BRANCH = '2.x'
   - EXT_USER = 'linuxserver'
@@ -25,6 +24,6 @@ repo_vars:
   - CI_PORT='80'
   - CI_SSL='false'
   - CI_DELAY='120'
-  - CI_DOCKERENV='TZ=US/Pacific'
-  - CI_AUTH='user:password'
+  - CI_DOCKERENV=''
+  - CI_AUTH=''
   - CI_WEBPATH=''
