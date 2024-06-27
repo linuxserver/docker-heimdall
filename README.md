@@ -74,7 +74,6 @@ This image provides various versions that are available via tags. Please read th
 
 Access the web gui at http://SERVERIP:PORT
 
-
 ### Adding password protection
 
 This image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. Uncomment the `basic auth` lines in `/config/nginx/site-confs/default.conf` and restart the container.
@@ -292,6 +291,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **27.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
 * **07.03.24:** - Enable the opcache and disable file revalidation.
 * **06.03.24:** - Existing users should update: site-confs/default.conf - Cleanup default site conf.
 * **23.12.23:** - Rebase to Alpine 3.19 with php 8.3.
