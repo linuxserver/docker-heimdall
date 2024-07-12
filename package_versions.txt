@@ -78,7 +78,7 @@ libacl                              2.3.2-r0               apk
 libattr                             2.5.2-r0               apk             
 libbsd                              0.12.2-r0              apk             
 libbz2                              1.0.8-r6               apk             
-libcrypto3                          3.3.1-r1               apk             
+libcrypto3                          3.3.1-r3               apk             
 libcurl                             8.8.0-r0               apk             
 libedit                             20240517.3.1-r0        apk             
 libexpat                            2.6.2-r0               apk             
@@ -90,7 +90,7 @@ libncursesw                         6.4_p20240420-r0       apk
 libpq                               16.3-r0                apk             
 libproc2                            4.0.4-r0               apk             
 libpsl                              0.21.5-r1              apk             
-libssl3                             3.3.1-r1               apk             
+libssl3                             3.3.1-r3               apk             
 libstdc++                           13.2.1_git20240309-r0  apk             
 libunistring                        1.2-r0                 apk             
 libuuid                             2.40.1-r1              apk             
@@ -116,7 +116,7 @@ nikic/php-parser                    v5.0.0                 php-composer
 nunomaduro/collision                v6.4.0                 php-composer    
 nunomaduro/termwind                 v1.15.1                php-composer    
 oniguruma                           6.9.9-r0               apk             
-openssl                             3.3.1-r1               apk             
+openssl                             3.3.1-r3               apk             
 pcre                                8.45-r3                apk             
 pcre2                               10.43-r0               apk             
 phar-io/manifest                    2.0.3                  php-composer    
