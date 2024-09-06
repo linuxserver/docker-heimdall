@@ -6,7 +6,7 @@ alpine-keys                         2.4-r1                 apk
 alpine-release                      3.20.2-r0              apk             
 apache2-utils                       2.4.62-r0              apk             
 apk-tools                           2.14.4-r0              apk             
-apr                                 1.7.4-r0               apk             
+apr                                 1.7.5-r0               apk             
 apr-util                            1.6.3-r1               apk             
 argon2-libs                         20190702-r5            apk             
 aws/aws-crt-php                     v1.2.4                 php-composer    
@@ -24,14 +24,14 @@ ca-certificates-bundle              20240705-r0            apk
 carbonphp/carbon-doctrine-types     2.1.0                  php-composer    
 catatonit                           0.2.0-r0               apk             
 clue/stream-filter                  v1.7.0                 php-composer    
-composer                            2.7.8                  binary          
+composer                            2.7.9                  binary          
 composer/class-map-generator        1.1.0                  php-composer    
 composer/pcre                       3.1.1                  php-composer    
 coreutils                           9.5-r1                 apk             
 coreutils-env                       9.5-r1                 apk             
 coreutils-fmt                       9.5-r1                 apk             
 coreutils-sha512sum                 9.5-r1                 apk             
-curl                                8.9.0-r0               apk             
+curl                                8.9.1-r1               apk             
 dflydev/dot-access-data             v3.0.2                 php-composer    
 doctrine/cache                      2.2.0                  php-composer    
 doctrine/dbal                       3.8.2                  php-composer    
@@ -78,10 +78,10 @@ libacl                              2.3.2-r0               apk
 libattr                             2.5.2-r0               apk             
 libbsd                              0.12.2-r0              apk             
 libbz2                              1.0.8-r6               apk             
-libcrypto3                          3.3.1-r3               apk             
-libcurl                             8.9.0-r0               apk             
+libcrypto3                          3.3.2-r0               apk             
+libcurl                             8.9.1-r1               apk             
 libedit                             20240517.3.1-r0        apk             
-libexpat                            2.6.2-r0               apk             
+libexpat                            2.6.3-r0               apk             
 libgcc                              13.2.1_git20240309-r0  apk             
 libidn2                             2.3.7-r0               apk             
 libintl                             0.22.5-r0              apk             
@@ -90,7 +90,7 @@ libncursesw                         6.4_p20240420-r0       apk
 libpq                               16.3-r0                apk             
 libproc2                            4.0.4-r0               apk             
 libpsl                              0.21.5-r1              apk             
-libssl3                             3.3.1-r3               apk             
+libssl3                             3.3.2-r0               apk             
 libstdc++                           13.2.1_git20240309-r0  apk             
 libunistring                        1.2-r0                 apk             
 libuuid                             2.40.1-r1              apk             
@@ -116,7 +116,7 @@ nikic/php-parser                    v5.0.0                 php-composer
 nunomaduro/collision                v6.4.0                 php-composer    
 nunomaduro/termwind                 v1.15.1                php-composer    
 oniguruma                           6.9.9-r0               apk             
-openssl                             3.3.1-r3               apk             
+openssl                             3.3.2-r0               apk             
 pcre                                8.45-r3                apk             
 pcre2                               10.43-r0               apk             
 phar-io/manifest                    2.0.3                  php-composer    
