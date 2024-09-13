@@ -3,7 +3,7 @@ Hidden Input                        1, 0, 0, 0             dotnet
 alpine-baselayout                   3.6.5-r0               apk             
 alpine-baselayout-data              3.6.5-r0               apk             
 alpine-keys                         2.4-r1                 apk             
-alpine-release                      3.20.2-r0              apk             
+alpine-release                      3.20.3-r0              apk             
 apache2-utils                       2.4.62-r0              apk             
 apk-tools                           2.14.4-r0              apk             
 apr                                 1.7.5-r0               apk             
@@ -241,7 +241,7 @@ symfony/var-exporter                v7.0.3                 php-composer
 symfony/yaml                        v6.4.3                 php-composer    
 theseer/tokenizer                   1.2.2                  php-composer    
 tijsverkoyen/css-to-inline-styles   v2.2.7                 php-composer    
-tzdata                              2024a-r1               apk             
+tzdata                              2024b-r0               apk             
 utmps-libs                          0.1.2.2-r1             apk             
 vlucas/phpdotenv                    v5.6.0                 php-composer    
 voku/portable-ascii                 2.0.1                  php-composer    
