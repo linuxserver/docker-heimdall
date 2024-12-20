@@ -31,7 +31,7 @@ coreutils                           9.5-r1                 apk
 coreutils-env                       9.5-r1                 apk             
 coreutils-fmt                       9.5-r1                 apk             
 coreutils-sha512sum                 9.5-r1                 apk             
-curl                                8.11.0-r2              apk             
+curl                                8.11.1-r0              apk             
 dflydev/dot-access-data             v3.0.2                 php-composer    
 doctrine/cache                      2.2.0                  php-composer    
 doctrine/dbal                       3.8.2                  php-composer    
@@ -79,7 +79,7 @@ libattr                             2.5.2-r0               apk
 libbsd                              0.12.2-r0              apk             
 libbz2                              1.0.8-r6               apk             
 libcrypto3                          3.3.2-r1               apk             
-libcurl                             8.11.0-r2              apk             
+libcurl                             8.11.1-r0              apk             
 libedit                             20240517.3.1-r0        apk             
 libexpat                            2.6.4-r0               apk             
 libgcc                              13.2.1_git20240309-r0  apk             
