@@ -11,6 +11,7 @@ project_blurb: |
 
   Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+project_categories: "Dashboard"
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
