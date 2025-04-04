@@ -1,5 +1,4 @@
 NAME                                VERSION                TYPE           
-Hidden Input                        1, 0, 0, 0             dotnet          
 alpine-baselayout                   3.6.5-r0               apk             
 alpine-baselayout-data              3.6.5-r0               apk             
 alpine-keys                         2.4-r1                 apk             
@@ -24,7 +23,7 @@ ca-certificates-bundle              20241121-r1            apk
 carbonphp/carbon-doctrine-types     2.1.0                  php-composer    
 catatonit                           0.2.0-r0               apk             
 clue/stream-filter                  v1.7.0                 php-composer    
-composer                            2.8.6                  binary          
+composer                            2.8.7                  binary          
 composer/class-map-generator        1.1.0                  php-composer    
 composer/pcre                       3.1.1                  php-composer    
 coreutils                           9.5-r2                 apk             
@@ -242,7 +241,7 @@ symfony/var-exporter                v7.0.3                 php-composer
 symfony/yaml                        v6.4.3                 php-composer    
 theseer/tokenizer                   1.2.2                  php-composer    
 tijsverkoyen/css-to-inline-styles   v2.2.7                 php-composer    
-tzdata                              2025a-r0               apk             
+tzdata                              2025b-r0               apk             
 utmps-libs                          0.1.2.2-r1             apk             
 vlucas/phpdotenv                    v5.6.0                 php-composer    
 voku/portable-ascii                 2.0.1                  php-composer    
