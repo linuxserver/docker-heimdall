@@ -23,7 +23,7 @@ ca-certificates-bundle              20241121-r1            apk
 carbonphp/carbon-doctrine-types     2.1.0                  php-composer    
 catatonit                           0.2.0-r0               apk             
 clue/stream-filter                  v1.7.0                 php-composer    
-composer                            2.8.8                  binary          
+composer                            2.8.9                  binary          
 composer/class-map-generator        1.1.0                  php-composer    
 composer/pcre                       3.1.1                  php-composer    
 coreutils                           9.5-r2                 apk             
@@ -87,14 +87,14 @@ libidn2                             2.3.7-r0               apk
 libintl                             0.22.5-r0              apk             
 libmd                               1.1.0-r0               apk             
 libncursesw                         6.4_p20240420-r2       apk             
-libpq                               16.8-r0                apk             
+libpq                               16.9-r0                apk             
 libproc2                            4.0.4-r0               apk             
 libpsl                              0.21.5-r1              apk             
 libssl3                             3.3.3-r0               apk             
 libstdc++                           13.2.1_git20240309-r1  apk             
 libunistring                        1.2-r0                 apk             
 libuuid                             2.40.1-r1              apk             
-libxml2                             2.12.7-r2              apk             
+libxml2                             2.12.10-r0             apk             
 libzip                              1.10.1-r0              apk             
 linux-pam                           1.6.0-r0               apk             
 logrotate                           3.21.0-r1              apk             
