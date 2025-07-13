@@ -37,6 +37,7 @@ doctrine/inflector                  2.0.10                 php-composer
 doctrine/lexer                      3.0.1                  php-composer    
 dragonmantank/cron-expression       v3.4.0                 php-composer    
 egulias/email-validator             4.0.4                  php-composer    
+enshrined/svg-sanitize              0.21.0                 php-composer    
 fakerphp/faker                      v1.24.1                php-composer    
 filp/whoops                         2.18.3                 php-composer    
 findutils                           4.9.0-r5               apk             
