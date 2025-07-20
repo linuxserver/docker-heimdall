@@ -31,6 +31,9 @@ param_usage_include_ports: true
 param_ports:
   - {external_port: "80", internal_port: "80", port_desc: "http gui"}
   - {external_port: "443", internal_port: "443", port_desc: "https gui"}
+opt_param_usage_include_env: true
+opt_param_env_vars:
+  - {env_var: "ALLOW_INTERNAL_REQUESTS", env_value: "false", desc: "By default, Heimdall blocks lookup requests to private or reserved IP addresses, if your instance is not exposed to the internet, or is behind some level of authentication, you can set this to `true` to allow requests to private IP addresses."}
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -100,6 +103,7 @@ init_diagram: |
   "heimdall:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "20.07.25:", desc: "Rebase to Alpine 3.22, enable PHP environment passthrough."}
   - {date: "27.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
   - {date: "07.03.24:", desc: "Enable the opcache and disable file revalidation."}
   - {date: "06.03.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf."}

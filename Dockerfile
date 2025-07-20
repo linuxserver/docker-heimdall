@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.22
 
 # set version label
 ARG BUILD_DATE
@@ -12,13 +12,13 @@ LABEL maintainer="aptalca"
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
-    php83-dom \
-    php83-intl \
-    php83-pdo_pgsql \
-    php83-pdo_sqlite \
-    php83-pdo_mysql \
-    php83-opcache \
-    php83-tokenizer && \
+    php84-dom \
+    php84-intl \
+    php84-opcache \
+    php84-pdo_mysql \
+    php84-pdo_pgsql \
+    php84-pdo_sqlite \
+    php84-tokenizer && \
   echo "**** configure nginx ****" && \
   echo 'fastcgi_param  PHP_AUTH_USER      $remote_user; # Heimdall user authorization' >> \
     /etc/nginx/fastcgi_params && \
@@ -27,6 +27,10 @@ RUN \
   echo "**** configure php opcache ****" && \
   echo 'opcache.validate_timestamps=0' >> \
     /etc/php83/conf.d/00_opcache.ini && \
+  echo "**** configure php-fpm to pass env vars ****" && \
+  sed -E -i 's/^;?clear_env ?=.*$/clear_env = no/g' /etc/php84/php-fpm.d/www.conf && \
+  if ! grep -qxF 'clear_env = no' /etc/php84/php-fpm.d/www.conf; then echo 'clear_env = no' >> /etc/php84/php-fpm.d/www.conf; fi && \
+  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php84/php-fpm.conf && \
   echo "**** install heimdall ****" && \
   mkdir -p \
     /heimdall && \
