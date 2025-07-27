@@ -26,7 +26,7 @@ RUN \
     /etc/nginx/fastcgi_params && \
   echo "**** configure php opcache ****" && \
   echo 'opcache.validate_timestamps=0' >> \
-    /etc/php83/conf.d/00_opcache.ini && \
+    /etc/php84/conf.d/00_opcache.ini && \
   echo "**** configure php-fpm to pass env vars ****" && \
   sed -E -i 's/^;?clear_env ?=.*$/clear_env = no/g' /etc/php84/php-fpm.d/www.conf && \
   if ! grep -qxF 'clear_env = no' /etc/php84/php-fpm.d/www.conf; then echo 'clear_env = no' >> /etc/php84/php-fpm.d/www.conf; fi && \
