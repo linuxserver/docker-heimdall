@@ -94,6 +94,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - ALLOW_INTERNAL_REQUESTS=false #optional
     volumes:
       - /path/to/heimdall/config:/config
     ports:
@@ -110,6 +111,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
+  -e ALLOW_INTERNAL_REQUESTS=false `#optional` \
   -p 80:80 \
   -p 443:443 \
   -v /path/to/heimdall/config:/config \
@@ -128,6 +130,7 @@ Containers are configured using parameters passed at runtime (such as those abov
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
+| `-e ALLOW_INTERNAL_REQUESTS=false` | By default, Heimdall blocks lookup requests to private or reserved IP addresses, if your instance is not exposed to the internet, or is behind some level of authentication, you can set this to `true` to allow requests to private IP addresses. |
 | `-v /config` | Persistent config files |
 
 ## Environment variables from files (Docker secrets)
@@ -292,6 +295,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.07.25:** - Rebase to Alpine 3.22, enable PHP environment passthrough.
 * **27.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
 * **07.03.24:** - Enable the opcache and disable file revalidation.
 * **06.03.24:** - Existing users should update: site-confs/default.conf - Cleanup default site conf.
