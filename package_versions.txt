@@ -25,7 +25,7 @@ ca-certificates-bundle              20260413-r0       apk
 carbonphp/carbon-doctrine-types     3.2.0             php-composer    
 catatonit                           0.2.1-r0          apk             
 clue/stream-filter                  v1.7.0            php-composer    
-composer                            2.9.7             binary          
+composer                            2.9.8             binary          
 composer/class-map-generator        1.6.1             php-composer    
 composer/pcre                       3.3.2             php-composer    
 coreutils                           9.7-r1            apk             
@@ -108,8 +108,8 @@ nesbot/carbon                       3.10.1            php-composer
 netcat-openbsd                      1.229.1-r0        apk             
 nette/schema                        v1.3.2            php-composer    
 nette/utils                         v4.0.7            php-composer    
-nghttp2-libs                        1.65.0-r0         apk             
-nginx                               1.28.3-r0         apk             
+nghttp2-libs                        1.69.0-r0         apk             
+nginx                               1.28.3-r1         apk             
 nikic/php-parser                    v5.5.0            php-composer    
 nunomaduro/collision                v8.5.0            php-composer    
 nunomaduro/termwind                 v2.3.1            php-composer    
