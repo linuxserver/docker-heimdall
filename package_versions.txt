@@ -4,9 +4,9 @@ acl-libs                            2.3.2-r1          apk
 alpine-baselayout                   3.7.0-r0          apk             
 alpine-baselayout-data              3.7.0-r0          apk             
 alpine-keys                         2.5-r0            apk             
-alpine-release                      3.22.4-r0         apk             
-apache2-utils                       2.4.67-r0         apk             
-apk-tools                           2.14.9-r3         apk             
+alpine-release                      3.22.5-r0         apk             
+apache2-utils                       2.4.68-r0         apk             
+apk-tools                           2.14.10-r0        apk             
 apr                                 1.7.5-r0          apk             
 apr-util                            1.6.3-r1          apk             
 argon2-libs                         20190702-r5       apk             
@@ -20,8 +20,8 @@ brotli-libs                         1.1.0-r2          apk
 busybox                             1.37.0-r20        apk             
 busybox-binsh                       1.37.0-r20        apk             
 c-ares                              1.34.6-r0         apk             
-ca-certificates                     20260413-r0       apk             
-ca-certificates-bundle              20260413-r0       apk             
+ca-certificates                     20260611-r0       apk             
+ca-certificates-bundle              20260611-r0       apk             
 carbonphp/carbon-doctrine-types     3.2.0             php-composer    
 catatonit                           0.2.1-r0          apk             
 clue/stream-filter                  v1.7.0            php-composer    
@@ -72,7 +72,7 @@ league/flysystem-local              3.31.0            php-composer
 league/mime-type-detection          1.16.0            php-composer    
 league/uri                          7.8.1             php-composer    
 league/uri-interfaces               7.8.1             php-composer    
-libapk2                             2.14.9-r3         apk             
+libapk2                             2.14.10-r0        apk             
 libattr                             2.5.2-r2          apk             
 libbsd                              0.12.2-r0         apk             
 libbz2                              1.0.8-r6          apk             
@@ -113,6 +113,7 @@ nginx                               1.28.3-r4         apk
 nikic/php-parser                    v5.8.0            php-composer    
 nunomaduro/collision                v8.9.4            php-composer    
 nunomaduro/termwind                 v2.4.0            php-composer    
+nyholm/psr7                         1.8.2             php-composer    
 oniguruma                           6.9.10-r0         apk             
 openssl                             3.5.7-r0          apk             
 pcre2                               10.46-r0          apk             
@@ -156,6 +157,15 @@ phpunit/php-invoker                 6.0.0             php-composer
 phpunit/php-text-template           5.0.0             php-composer    
 phpunit/php-timer                   8.0.0             php-composer    
 phpunit/phpunit                     12.5.31           php-composer    
+phrity/comparison                   1.4.1             php-composer    
+phrity/http                         1.1.0             php-composer    
+phrity/net-stream                   2.4.0             php-composer    
+phrity/net-uri                      2.2.1             php-composer    
+phrity/util-accessor                1.3.1             php-composer    
+phrity/util-errorhandler            1.2.2             php-composer    
+phrity/util-interpolator            1.1.1             php-composer    
+phrity/util-transformer             1.3.1             php-composer    
+phrity/websocket                    3.7.3             php-composer    
 popt                                1.19-r4           apk             
 procps-ng                           4.0.4-r3          apk             
 psr/cache                           3.0.0             php-composer    
