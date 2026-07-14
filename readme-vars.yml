@@ -98,6 +98,7 @@ init_diagram: |
   "heimdall:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "14.07.26:", desc: "Rebase to Alpine 3.24"}
   - {date: "20.07.25:", desc: "Rebase to Alpine 3.22, enable PHP environment passthrough."}
   - {date: "27.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
   - {date: "07.03.24:", desc: "Enable the opcache and disable file revalidation."}
