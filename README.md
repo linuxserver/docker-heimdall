@@ -295,6 +295,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **14.07.26:** - Rebase to Alpine 3.24.
 * **17.07.25:** - Rebase to Alpine 3.22, enable PHP environment passthrough.
 * **27.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
 * **07.03.24:** - Enable the opcache and disable file revalidation.
