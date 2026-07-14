@@ -14,7 +14,6 @@ RUN \
   apk add --no-cache \
     php85-dom \
     php85-intl \
-    php85-opcache \
     php85-pdo_mysql \
     php85-pdo_pgsql \
     php85-pdo_sqlite \
