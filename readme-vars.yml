@@ -92,7 +92,7 @@ init_diagram: |
     svc-queue -> legacy-services
   }
   Base Images: {
-    "baseimage-alpine-nginx:3.22" <- "baseimage-alpine:3.22"
+    "baseimage-alpine-nginx:3.24" <- "baseimage-alpine:3.24"
   }
   "heimdall:development" <- Base Images
 # changelog
