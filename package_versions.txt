@@ -85,7 +85,7 @@ libidn2                             2.3.8-r0          apk
 libintl                             1.0-r0            apk             
 libmd                               1.2.0-r0          apk             
 libncursesw                         6.6_p20260516-r0  apk             
-libpq                               18.4-r0           apk             
+libpq                               18.6-r0           apk             
 libproc2                            4.0.6-r0          apk             
 libpsl                              0.21.5-r3         apk             
 libssl3                             3.5.7-r0          apk             
