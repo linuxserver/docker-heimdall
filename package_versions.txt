@@ -79,7 +79,7 @@ libbz2                              1.0.8-r6          apk
 libcrypto3                          3.5.8-r0          apk             
 libcurl                             8.21.0-r0         apk             
 libedit                             20260508.3.1-r1   apk             
-libexpat                            2.8.3-r0          apk             
+libexpat                            2.8.4-r0          apk             
 libgcc                              15.2.0-r5         apk             
 libidn2                             2.3.8-r0          apk             
 libintl                             1.0-r0            apk             
@@ -116,7 +116,7 @@ nunomaduro/termwind                 v2.4.0            php-composer
 nyholm/psr7                         1.8.2             php-composer    
 oniguruma                           6.9.10-r0         apk             
 openssl                             3.5.8-r0          apk             
-pcre2                               10.47-r1          apk             
+pcre2                               10.48-r0          apk             
 phar-io/manifest                    2.0.4             php-composer    
 phar-io/version                     3.2.1             php-composer    
 php-http/cache-plugin               2.1.0             php-composer    
