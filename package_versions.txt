@@ -102,14 +102,14 @@ mtdowling/jmespath.php              2.9.2             php-composer
 musl                                1.2.6-r2          apk             
 musl-utils                          1.2.6-r2          apk             
 myclabs/deep-copy                   1.13.4            php-composer    
-nano                                9.2-r0            apk             
+nano                                9.3-r0            apk             
 ncurses-terminfo-base               6.6_p20260516-r0  apk             
 nesbot/carbon                       3.13.0            php-composer    
 netcat-openbsd                      1.234.1-r0        apk             
 nette/schema                        v1.3.5            php-composer    
 nette/utils                         v4.1.4            php-composer    
 nghttp2-libs                        1.70.0-r0         apk             
-nginx                               1.30.4-r1         apk             
+nginx                               1.30.6-r0         apk             
 nikic/php-parser                    v5.8.0            php-composer    
 nunomaduro/collision                v8.9.4            php-composer    
 nunomaduro/termwind                 v2.4.0            php-composer    
